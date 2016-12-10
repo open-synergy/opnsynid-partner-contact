@@ -10,7 +10,7 @@ class PartnerOwnershipType(models.Model):
     _description = "Partner Ownership Type"
 
     name = fields.Char(
-        string="# Ownership Type",
+        string="Ownership Type",
         required=True,
     )
     notes = fields.Text(
