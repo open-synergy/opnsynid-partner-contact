@@ -17,5 +17,6 @@ class PartnerOwnershipType(models.Model):
         string="Notes"
     )
     active = fields.Boolean(
-        string="Active"
+        string="Active",
+        default=True
     )
