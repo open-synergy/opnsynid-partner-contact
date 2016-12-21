@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- ROOT MENU -->
+        <menuitem 
+            name="Partner"
+            id="res_partner_root_menu"
+            sequence="1"/>
+
+        <!-- Partner Menu -->
+
+        <menuitem 
+            name="Partner"
+            id="res_partner_partner_menu"
+            parent="res_partner_root_menu"
+            sequence="1"/>
+
+            <record id="res_partner_view_form" model="ir.ui.view">
+                <field name="name">Res Partner Form</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="base.view_partner_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='is_company']" position="attributes">
+                        <attribute name='invisible'>True</attribute>
+                    </xpath>
+                </field>
+            </record>
+
+            <!-- Company Partner Menu -->
+
+            <record id="res_partner_company_partner_action" model="ir.actions.act_window">
+                <field name="name">Company Partner</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">res.partner</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">kanban,tree,form</field>
+                <field name="context">
+                    {
+                        "default_is_company":1,
+                        "default_customer":0,
+                        "default_supplier":0
+                    }
+                </field>
+                <field name="domain">
+                    [
+                        ('is_company', '=', True),
+                        ('parent_id', '=', False)
+                    ]
+                </field>
+                <field name="search_view_id" ref="base.view_res_partner_filter"/>
+                <field name="help" type="html">
+                  <p class="oe_view_nocontent_create">
+                    Click to add a contact in your address book.
+                  </p><p>
+                    Odoo helps you easily track all activities related to
+                    a customer; discussions, history of business opportunities,
+                    documents, etc.
+                  </p>
+                </field>
+            </record>
+
+            <record id="res_partner_company_partner_window_kanban" model="ir.actions.act_window.view">
+                <field eval="1" name="sequence"/>
+                <field name="view_mode">kanban</field>
+                <field name="view_id" ref="base.res_partner_kanban_view"/>
+                <field name="act_window_id" ref="res_partner_company_partner_action"/>
+            </record>
+
+            <record id="res_partner_company_partner_window_tree" model="ir.actions.act_window.view">
+                <field eval="2" name="sequence"/>
+                <field name="view_mode">tree</field>
+                <field name="view_id" ref="base.view_partner_tree"/>
+                <field name="act_window_id" ref="res_partner_company_partner_action"/>
+            </record>
+
+            <record id="res_partner_company_partner_window_form" model="ir.actions.act_window.view">
+                <field eval="3" name="sequence"/>
+                <field name="view_mode">form</field>
+                <field name="view_id" ref="res_partner_view_form"/>
+                <field name="act_window_id" ref="res_partner_company_partner_action"/>
+            </record>
+
+            <menuitem 
+                name="Company Partner"
+                id="res_partner_company_partner_menu"
+                parent="res_partner_partner_menu"
+                action="res_partner_company_partner_action"
+                sequence="1"/>
+
+            <!-- Individual Partner Menu -->
+
+                <record id="res_partner_individual_partner_action" model="ir.actions.act_window">
+                    <field name="name">Company Partner</field>
+                    <field name="type">ir.actions.act_window</field>
+                    <field name="res_model">res.partner</field>
+                    <field name="view_type">form</field>
+                    <field name="view_mode">kanban,tree,form</field>
+                    <field name="context">
+                        {
+                            "default_is_company":0,
+                            "default_customer":0,
+                            "default_supplier":0
+                        }
+                    </field>
+                    <field name="domain">
+                        [
+                            ('is_company', '=', False),
+                            ('parent_id', '=', False)
+                        ]
+                    </field>
+                    <field name="search_view_id" ref="base.view_res_partner_filter"/>
+                    <field name="help" type="html">
+                      <p class="oe_view_nocontent_create">
+                        Click to add a contact in your address book.
+                      </p><p>
+                        Odoo helps you easily track all activities related to
+                        a customer; discussions, history of business opportunities,
+                        documents, etc.
+                      </p>
+                    </field>
+                </record>
+
+                <record id="res_partner_individual_partner_window_kanban" model="ir.actions.act_window.view">
+                    <field eval="1" name="sequence"/>
+                    <field name="view_mode">kanban</field>
+                    <field name="view_id" ref="base.res_partner_kanban_view"/>
+                    <field name="act_window_id" ref="res_partner_individual_partner_action"/>
+                </record>
+
+                <record id="res_partner_individual_partner_window_tree" model="ir.actions.act_window.view">
+                    <field eval="2" name="sequence"/>
+                    <field name="view_mode">tree</field>
+                    <field name="view_id" ref="base.view_partner_tree"/>
+                    <field name="act_window_id" ref="res_partner_individual_partner_action"/>
+                </record>
+
+                <record id="res_partner_individual_partner_window_form" model="ir.actions.act_window.view">
+                    <field eval="3" name="sequence"/>
+                    <field name="view_mode">form</field>
+                    <field name="view_id" ref="res_partner_view_form"/>
+                    <field name="act_window_id" ref="res_partner_individual_partner_action"/>
+                </record>
+
+            <menuitem 
+                name="Individual Partner"
+                id="res_partner_individual_partner_menu"
+                parent="res_partner_partner_menu"
+                action="res_partner_individual_partner_action"
+                sequence="1"/>
+
+        <!-- Report Menu -->
+
+        <menuitem 
+            name="Report"
+            id="res_partner_report_menu"
+            parent="res_partner_root_menu"
+            sequence="99"/>
+
+        <!-- Configration Menu -->
+
+        <menuitem 
+            name="Configuration"
+            id="res_partner_configuration_menu"
+            parent="res_partner_root_menu"
+            sequence="100"/>
+
+            <!-- Address Book -->
+            <menuitem 
+                name="Address Book"
+                id="res_partner_address_book_menu"
+                parent="res_partner_configuration_menu"
+                sequence="1"/>
+
+                <!-- Localization -->
+                <menuitem 
+                    name="Localization"
+                    id="res_partner_localization_menu"
+                    parent="res_partner_address_book_menu"
+                    sequence="1"/>
+
+                    <!-- Countries -->
+                    <menuitem 
+                        name="Countries"
+                        id="res_partner_countries_menu"
+                        parent="res_partner_localization_menu"
+                        action="base.action_country"
+                        sequence="1"/>
+
+                    <!-- Country Group -->
+                    <menuitem 
+                        name="Country Group"
+                        id="res_partner_country_group_menu"
+                        parent="res_partner_localization_menu"
+                        action="base.action_country_group"
+                        sequence="2"/>
+
+
+                    <!-- Fed States -->
+                    <menuitem 
+                        name="Fed. States"
+                        id="res_partner_fed_states_menu"
+                        parent="res_partner_localization_menu"
+                        action="base.action_country_state"
+                        sequence="3"/>
+
+                <!-- Titles -->
+                <menuitem 
+                    name="Titles"
+                    id="res_partner_titles_menu"
+                    parent="res_partner_configuration_menu"
+                    action="base.action_partner_title_partner"
+                    sequence="2"/>
+
+                <!-- Contact Titles -->
+                <menuitem 
+                    name="Contact Titles"
+                    id="res_partner_contact_titles_menu"
+                    parent="res_partner_configuration_menu"
+                    action="base.action_partner_title_contact"
+                    sequence="3"/>
+
+
+                <!-- Partner Tags -->
+                <menuitem 
+                    name="Partner Tags"
+                    id="res_partner_partner_tags_menu"
+                    parent="res_partner_configuration_menu"
+                    action="base.action_partner_category_form"
+                    sequence="4"/>
+
+                <!-- Bank Accounts -->
+                <menuitem 
+                    name="Bank Accounts"
+                    id="res_partner_bank_accounts_menu"
+                    parent="res_partner_configuration_menu"
+                    action="base.action_res_partner_bank_account_form"
+                    sequence="5"/>
+
+                <!-- Banks -->
+                <menuitem 
+                    name="Banks"
+                    id="res_partner_banks_menu"
+                    parent="res_partner_configuration_menu"
+                    action="base.action_res_bank_form"
+                    sequence="6"/>
+
+                <!-- Bank Account Type -->
+                <menuitem 
+                    name="Bank Account Type"
+                    id="res_partner_bank_account_type_menu"
+                    parent="res_partner_configuration_menu"
+                    action="base.action_res_partner_bank_type_form"
+                    sequence="7"/>
+    </data>
+</openerp>
