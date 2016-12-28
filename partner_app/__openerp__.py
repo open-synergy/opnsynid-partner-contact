@@ -10,6 +10,12 @@
     "author": "OpenSynergy Indonesia",
     "license": "AGPL-3",
     "installable": True,
-    "depends": ["base"],
-    "data": ["views/res_partner_view.xml"],
+    "application": True,
+    "depends": [
+        "base",
+    ],
+    "data": [
+        "security/res_groups.xml",
+        "views/res_partner_view.xml",
+    ],
 }
