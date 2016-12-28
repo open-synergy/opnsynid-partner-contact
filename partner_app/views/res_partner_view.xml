@@ -6,7 +6,8 @@
         <menuitem 
             name="Partner"
             id="res_partner_root_menu"
-            sequence="1"/>
+            groups="base.group_partner_manager"
+            sequence="11"/>
 
         <!-- Partner Menu -->
 
@@ -23,6 +24,7 @@
                 <field name="model">res.partner</field>
                 <field name="inherit_id" ref="base.view_partner_form"/>
                 <field name="mode">primary</field>
+                <field name="priority" eval="90"/>
                 <field name="arch" type="xml">
                     <xpath expr="//div[1]/div[1]" position="replace">
                         <div class="oe_edit_only">
@@ -46,6 +48,23 @@
                 </field>
             </record>
 
+            <record id="res_partner_view_search" model="ir.ui.view">
+                <field name="name">Res Partner Search</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="base.view_res_partner_filter"/>
+                <field name="mode">primary</field>
+                <field name="priority" eval="90"/>
+                <field name="arch" type="xml">
+                    <data>
+                        <xpath expr="//filter[@name='type_person']" position="attributes">
+                            <attribute name="invisible">1</attribute>
+                        </xpath>
+                        <xpath expr="//filter[@name='type_company']" position="attributes">
+                            <attribute name="invisible">1</attribute>
+                        </xpath>
+                    </data>
+                </field>
+            </record>
             <!-- Company Partner Views -->
 
             <!-- Form Views -->
@@ -54,6 +73,19 @@
                 <field name="model">res.partner</field>
                 <field name="inherit_id" ref="res_partner_view_form"/>
                 <field name="mode">primary</field>
+                <field name="priority" eval="100"/>
+                <field name="arch" type="xml">
+                    <data></data>
+                </field>
+            </record>
+
+            <!-- Search Views -->
+            <record id="res_partner_company_view_search" model="ir.ui.view">
+                <field name="name">Res Partner Search</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="res_partner_view_search"/>
+                <field name="mode">primary</field>
+                <field name="priority" eval="100"/>
                 <field name="arch" type="xml">
                     <data></data>
                 </field>
@@ -65,6 +97,7 @@
                 <field name="model">res.partner</field>
                 <field name="inherit_id" ref="base.view_partner_tree"/>
                 <field name="mode">primary</field>
+                <field name="priority" eval="100"/>
                 <field name="arch" type="xml">
                     <data></data>
                 </field>
@@ -76,6 +109,7 @@
                 <field name="model">res.partner</field>
                 <field name="inherit_id" ref="base.res_partner_kanban_view"/>
                 <field name="mode">primary</field>
+                <field name="priority" eval="100"/>
                 <field name="arch" type="xml">
                     <data></data>
                 </field>
@@ -102,7 +136,7 @@
                         ('parent_id', '=', False)
                     ]
                 </field>
-                <field name="search_view_id" ref="base.view_res_partner_filter"/>
+                <field name="search_view_id" ref="res_partner_view_search"/>
                 <field name="help" type="html">
                   <p class="oe_view_nocontent_create">
                     Click to add a contact in your address book.
@@ -138,7 +172,7 @@
             <!-- Company Partner Menu -->
 
             <menuitem 
-                name="Company Partner"
+                name="Company Partners"
                 id="res_partner_company_partner_menu"
                 parent="res_partner_partner_menu"
                 action="res_partner_company_partner_action"
@@ -152,6 +186,19 @@
                 <field name="model">res.partner</field>
                 <field name="inherit_id" ref="res_partner_view_form"/>
                 <field name="mode">primary</field>
+                <field name="priority" eval="100"/>
+                <field name="arch" type="xml">
+                    <data></data>
+                </field>
+            </record>
+
+            <!-- Search Views -->
+            <record id="res_partner_individual_view_search" model="ir.ui.view">
+                <field name="name">Res Partner Search</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="res_partner_view_search"/>
+                <field name="mode">primary</field>
+                <field name="priority" eval="100"/>
                 <field name="arch" type="xml">
                     <data></data>
                 </field>
@@ -163,6 +210,7 @@
                 <field name="model">res.partner</field>
                 <field name="inherit_id" ref="base.view_partner_tree"/>
                 <field name="mode">primary</field>
+                <field name="priority" eval="100"/>
                 <field name="arch" type="xml">
                     <data></data>
                 </field>
@@ -174,6 +222,7 @@
                 <field name="model">res.partner</field>
                 <field name="inherit_id" ref="base.res_partner_kanban_view"/>
                 <field name="mode">primary</field>
+                <field name="priority" eval="100"/>
                 <field name="arch" type="xml">
                     <data></data>
                 </field>
@@ -201,7 +250,7 @@
                             ('parent_id', '=', False)
                         ]
                     </field>
-                    <field name="search_view_id" ref="base.view_res_partner_filter"/>
+                    <field name="search_view_id" ref="res_partner_view_search"/>
                     <field name="help" type="html">
                       <p class="oe_view_nocontent_create">
                         Click to add a contact in your address book.
@@ -237,7 +286,7 @@
             <!-- Individual Partner Menu -->
 
             <menuitem 
-                name="Individual Partner"
+                name="Individual Partners"
                 id="res_partner_individual_partner_menu"
                 parent="res_partner_partner_menu"
                 action="res_partner_individual_partner_action"
