@@ -16,18 +16,72 @@
             parent="res_partner_root_menu"
             sequence="1"/>
 
+            <!-- Res Partner Form Views -->
+
             <record id="res_partner_view_form" model="ir.ui.view">
                 <field name="name">Res Partner Form</field>
                 <field name="model">res.partner</field>
                 <field name="inherit_id" ref="base.view_partner_form"/>
+                <field name="mode">primary</field>
                 <field name="arch" type="xml">
-                    <xpath expr="//field[@name='is_company']" position="attributes">
-                        <attribute name='invisible'>True</attribute>
+                    <xpath expr="//div[1]/div[1]" position="replace">
+                        <div class="oe_edit_only">
+                            <field
+                                name="is_company"
+                                on_change="onchange_type(is_company)"
+                                class="oe_inline"
+                                invisible="True"/>
+                        </div>
+                    </xpath>
+                    <xpath expr="//field[@name='parent_id']" position="replace">
+                        <div class="oe_edit_only">
+                            <field name="parent_id"
+                                placeholder="Company"
+                                domain="[('is_company', '=', True)]"
+                                context="{'default_is_company': True, 'default_supplier': supplier, 'default_customer': customer}"
+                                invisible="True"
+                                on_change="onchange_address(use_parent_address, parent_id)"/>
+                        </div>
                     </xpath>
                 </field>
             </record>
 
-            <!-- Company Partner Menu -->
+            <!-- Company Partner Views -->
+
+            <!-- Form Views -->
+            <record id="res_partner_company_view_form" model="ir.ui.view">
+                <field name="name">Res Partner Form</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="res_partner_view_form"/>
+                <field name="mode">primary</field>
+                <field name="arch" type="xml">
+                    <data></data>
+                </field>
+            </record>
+
+            <!-- Tree Views -->
+            <record id="res_partner_company_view_tree" model="ir.ui.view">
+                <field name="name">Res Partner Tree</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="base.view_partner_tree"/>
+                <field name="mode">primary</field>
+                <field name="arch" type="xml">
+                    <data></data>
+                </field>
+            </record>
+
+            <!-- Kanban Views -->
+            <record id="res_partner_company_view_kanban" model="ir.ui.view">
+                <field name="name">Res Partner Kanban</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+                <field name="mode">primary</field>
+                <field name="arch" type="xml">
+                    <data></data>
+                </field>
+            </record>
+
+            <!-- Company Partner Action -->
 
             <record id="res_partner_company_partner_action" model="ir.actions.act_window">
                 <field name="name">Company Partner</field>
@@ -63,23 +117,25 @@
             <record id="res_partner_company_partner_window_kanban" model="ir.actions.act_window.view">
                 <field eval="1" name="sequence"/>
                 <field name="view_mode">kanban</field>
-                <field name="view_id" ref="base.res_partner_kanban_view"/>
+                <field name="view_id" ref="res_partner_company_view_kanban"/>
                 <field name="act_window_id" ref="res_partner_company_partner_action"/>
             </record>
 
             <record id="res_partner_company_partner_window_tree" model="ir.actions.act_window.view">
                 <field eval="2" name="sequence"/>
                 <field name="view_mode">tree</field>
-                <field name="view_id" ref="base.view_partner_tree"/>
+                <field name="view_id" ref="res_partner_company_view_tree"/>
                 <field name="act_window_id" ref="res_partner_company_partner_action"/>
             </record>
 
             <record id="res_partner_company_partner_window_form" model="ir.actions.act_window.view">
                 <field eval="3" name="sequence"/>
                 <field name="view_mode">form</field>
-                <field name="view_id" ref="res_partner_view_form"/>
+                <field name="view_id" ref="res_partner_company_view_form"/>
                 <field name="act_window_id" ref="res_partner_company_partner_action"/>
             </record>
+
+            <!-- Company Partner Menu -->
 
             <menuitem 
                 name="Company Partner"
@@ -88,10 +144,46 @@
                 action="res_partner_company_partner_action"
                 sequence="1"/>
 
-            <!-- Individual Partner Menu -->
+            <!-- Individual Partner Views -->
+
+            <!-- Form Views -->
+            <record id="res_partner_individual_view_form" model="ir.ui.view">
+                <field name="name">Res Partner Form</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="res_partner_view_form"/>
+                <field name="mode">primary</field>
+                <field name="arch" type="xml">
+                    <data></data>
+                </field>
+            </record>
+
+            <!-- Tree Views -->
+            <record id="res_partner_individual_view_tree" model="ir.ui.view">
+                <field name="name">Res Partner Tree</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="base.view_partner_tree"/>
+                <field name="mode">primary</field>
+                <field name="arch" type="xml">
+                    <data></data>
+                </field>
+            </record>
+
+            <!-- Kanban Views -->
+            <record id="res_partner_individual_view_kanban" model="ir.ui.view">
+                <field name="name">Res Partner Kanban</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+                <field name="mode">primary</field>
+                <field name="arch" type="xml">
+                    <data></data>
+                </field>
+            </record>
+
+
+            <!-- Individual Partner Action -->
 
                 <record id="res_partner_individual_partner_action" model="ir.actions.act_window">
-                    <field name="name">Company Partner</field>
+                    <field name="name">Individual Partner</field>
                     <field name="type">ir.actions.act_window</field>
                     <field name="res_model">res.partner</field>
                     <field name="view_type">form</field>
@@ -124,23 +216,25 @@
                 <record id="res_partner_individual_partner_window_kanban" model="ir.actions.act_window.view">
                     <field eval="1" name="sequence"/>
                     <field name="view_mode">kanban</field>
-                    <field name="view_id" ref="base.res_partner_kanban_view"/>
+                    <field name="view_id" ref="res_partner_individual_view_kanban"/>
                     <field name="act_window_id" ref="res_partner_individual_partner_action"/>
                 </record>
 
                 <record id="res_partner_individual_partner_window_tree" model="ir.actions.act_window.view">
                     <field eval="2" name="sequence"/>
                     <field name="view_mode">tree</field>
-                    <field name="view_id" ref="base.view_partner_tree"/>
+                    <field name="view_id" ref="res_partner_individual_view_tree"/>
                     <field name="act_window_id" ref="res_partner_individual_partner_action"/>
                 </record>
 
                 <record id="res_partner_individual_partner_window_form" model="ir.actions.act_window.view">
                     <field eval="3" name="sequence"/>
                     <field name="view_mode">form</field>
-                    <field name="view_id" ref="res_partner_view_form"/>
+                    <field name="view_id" ref="res_partner_individual_view_form"/>
                     <field name="act_window_id" ref="res_partner_individual_partner_action"/>
                 </record>
+
+            <!-- Individual Partner Menu -->
 
             <menuitem 
                 name="Individual Partner"
