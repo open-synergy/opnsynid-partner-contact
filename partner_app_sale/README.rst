@@ -2,9 +2,9 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-============================
-Partner Application For Sale
-============================
+===============================================
+Partner Management Application - sale Extension
+===============================================
 
 Module to hide menu partner.
 
