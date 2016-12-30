@@ -2,9 +2,8 @@
 # Copyright 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
-    "name": "Partner Application Purchase",
+    "name": "Partner Management Application - purchase",
     "version": "8.0.1.0.0",
-    "summary": "Hide menu partner",
     "category": "Partner",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia",
@@ -15,5 +14,7 @@
         "partner_app",
         "purchase"
     ],
-    "data": ["views/res_partner_view.xml"],
+    "data": [
+        "views/res_partner_view.xml",
+        ],
 }
