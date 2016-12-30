@@ -2,12 +2,33 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-========================
-Base Partner Application
-========================
+================================
+Partner's Management Application
+================================
 
-Base module to manage partner.
+This module brings back Odoo (OpenERP) < 5.0 partner's menu style. All menu related
+to partner will be centralize on one root menu.
 
+This module will adds menus below:
+
+* Partner
+    * Partner
+        * Company Partners
+        * Individual Partners
+    * Reporting
+    * Configuration
+        * Address Book
+            * Localization
+                * Countries
+                * Country Group
+                * Fed. States
+        * Titles
+        * Contact Titles
+        * Partner Tags
+        * Bank Accounts
+        * Banks
+        * Bank Account Type
+    
 Installation
 ============
 
