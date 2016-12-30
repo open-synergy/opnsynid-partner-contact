@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Countries -->
+
+        <record id="base.menu_country_partner" model="ir.ui.menu">
+            <field
+                name="groups_id"
+                eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"
+            />
+        </record>
+
+        <!-- Country Group -->
+
+        <record id="base.menu_country_group" model="ir.ui.menu">
+            <field
+                name="groups_id"
+                eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"
+            />
+        </record>
+
+        <!-- Fed. States -->
+
+        <record id="base.menu_country_state_partner" model="ir.ui.menu">
+            <field
+                name="groups_id"
+                eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"
+            />
+        </record>
+
+        <!-- Currencies -->
+
+        <record id="base.menu_action_currency_form" model="ir.ui.menu">
+            <field
+                name="groups_id"
+                eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"
+            />
+        </record>
+
+        <!-- Titles -->
+
+        <record id="base.menu_partner_title_partner" model="ir.ui.menu">
+            <field
+                name="groups_id"
+                eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"
+            />
+        </record>
+
+        <!-- Contact Titles -->
+
+        <record id="base.menu_partner_title_contact" model="ir.ui.menu">
+            <field
+                name="groups_id"
+                eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"
+            />
+        </record>
+
+        <!-- Partner Tags -->
+
+        <record id="base.menu_partner_category_form" model="ir.ui.menu">
+            <field
+                name="groups_id"
+                eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"
+            />
+        </record>
+
+
+        <!-- Bank Accounts -->
+
+        <record id="base.menu_action_res_partner_bank_form" model="ir.ui.menu">
+            <field
+                name="groups_id"
+                eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"
+            />
+        </record>
+
+        <!-- Banks -->
+
+        <record id="base.menu_action_res_bank_form" model="ir.ui.menu">
+            <field
+                name="groups_id"
+                eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"
+            />
+        </record>
+
+        <!-- Bank Account Types -->
+
+        <record id="base.menu_action_res_partner_bank_typeform" model="ir.ui.menu">
+            <field
+                name="groups_id"
+                eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"
+            />
+        </record>
+
+    </data>
+</openerp>
