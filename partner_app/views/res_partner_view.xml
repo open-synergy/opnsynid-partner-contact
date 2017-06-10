@@ -26,6 +26,36 @@
                 <field name="mode">primary</field>
                 <field name="priority" eval="90"/>
                 <field name="arch" type="xml">
+                    <xpath expr="/form/sheet[1]" position="before">
+                        <header>
+                            <button name="button_toggle_customer"
+                                string="Mark as Customer"
+                                type="object"
+                                attrs="{'invisible':[('customer','=',True)]}"
+                                />
+                            <button name="button_toggle_customer"
+                                string="Unmark as Customer"
+                                type="object"
+                                attrs="{'invisible':[('customer','=',False)]}"
+                                />
+                            <button name="button_toggle_supplier"
+                                string="Mark as Supplier"
+                                type="object"
+                                attrs="{'invisible':[('supplier','=',True)]}"
+                                />
+                            <button name="button_toggle_supplier"
+                                string="Unmark as Supplier"
+                                type="object"
+                                attrs="{'invisible':[('supplier','=',False)]}"
+                                />
+                        </header>
+                    </xpath>
+                    <xpath expr="//field[@name='customer']" position="attributes">
+                        <attribute name="readonly">1</attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='supplier']" position="attributes">
+                        <attribute name="readonly">1</attribute>
+                    </xpath>
                     <xpath expr="//div[1]/div[1]" position="replace">
                         <div class="oe_edit_only">
                             <field
