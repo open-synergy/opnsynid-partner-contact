@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<openerp>
+<data>
+
+<record model="ir.ui.view" id="res_partner_form_view">
+    <field name="name">Partner form with LAU</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//sheet/group//field[@name='country_id']/.." position="after">
+            <field name="lau1_id" />
+            <field name="lau2_id"/>
+        </xpath>
+        <xpath expr="//field[@name='child_ids']/form//field[@name='country_id']/.." position="after">
+            <field name="lau1_id"/>
+            <field name="lau2_id"/>
+        </xpath>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="res_partner_search_view">
+    <field name="name">Partner search with LAU</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_res_partner_filter"/>
+    <field name="arch" type="xml">
+        <field name="category_id" position="after">
+            <field name="lau1_id"/>
+            <field name="lau2_id"/>
+        </field>
+        <filter string="Salesperson" position="after">
+            <filter string="LAU L1"
+                    domain="[]"
+                    context="{'group_by': 'lau1_id'}"/>
+            <filter string="LAU L2"
+                    domain="[]"
+                    context="{'group_by': 'lau2_id'}"/>
+        </filter>
+    </field>
+</record>
+
+</data>
+</openerp>
