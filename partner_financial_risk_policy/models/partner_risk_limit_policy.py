@@ -22,7 +22,7 @@ class PartnerRiskLimitPolicy(models.Model):
             policy.user_ids = users
 
     name = fields.Char(
-        string="Ownership Type",
+        string="Policy",
         required=True,
     )
     notes = fields.Text(
