@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="res_partner_view_form" model="ir.ui.view">
+            <field name="name">Partner Risk Limit Policy</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="partner_financial_risk.res_partner_view_risk" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='risk_limits']" position="inside">
+                    <field name="total_risk_limit_policy" invisible="1"/>
+                    <field name="invoice_draft_limit_policy" invisible="1"/>
+                    <field name="invoice_open_limit_policy" invisible="1"/>
+                    <field name="invoice_unpaid_limit_policy" invisible="1"/>
+                    <field name="account_amount_limit_policy" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+   
+    </data>
+</openerp>

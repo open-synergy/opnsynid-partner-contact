@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_partner_risk_limit_policy_all,Partner Risk Limit Policy All,model_partner_risk_limit_policy,,1,1,1,1
