@@ -51,5 +51,4 @@ class SaleOrder(models.Model):
                 []
             )[0]["amount_total"]
             order.invoice_amount = amount
-            if order.amount_total > amount:
-                order.invoice_pending_amount = order.amount_total - amount
+            order.invoice_pending_amount = order.amount_total - amount
