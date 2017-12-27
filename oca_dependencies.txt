@@ -13,3 +13,4 @@
 #
 # To provide both the URL and a branch, use:
 partner-contact https://github.com/OCA/partner-contact 8.0
+stock-logistics-workflow https://github.com/OCA/stock-logistics-workflow 8.0
