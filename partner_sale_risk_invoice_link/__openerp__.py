@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Link Between Partner Sale Risk and Picking Invoice Link",
-    "version": "8.0.1.0.1",
+    "version": "8.0.2.0.0",
     "category": "Partner",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia",
