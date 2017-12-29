@@ -23,8 +23,6 @@ class SaleOrder(models.Model):
         "invoice_ids",
         "invoice_ids.amount_total",
         "order_line.invoice_lines.invoice_id.amount_total",
-        "picking_ids", "picking_ids.invoice_ids",
-        "picking_ids.invoice_ids.amount_total",
     )
     def _compute_invoice_amount(self):
         AccountInvoice = self.env["account.invoice"]
