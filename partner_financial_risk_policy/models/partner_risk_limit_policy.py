@@ -55,20 +55,25 @@ class PartnerRiskLimitPolicy(models.Model):
     total_risk_limit = fields.Float(
         string="Total Risk Limit",
         default=0.0,
+        track_visibility="onchange",
     )
     invoice_draft_limit = fields.Float(
         string="Draft Invoice Limit",
         default=0.0,
+        track_visibility="onchange",
     )
     invoice_open_limit = fields.Float(
         string="Open Invoice Limit",
         default=0.0,
+        track_visibility="onchange",
     )
     invoice_unpaid_limit = fields.Float(
         string="Unpaid Invoice Limit",
         default=0.0,
+        track_visibility="onchange",
     )
     account_amount_limit = fields.Float(
         string="Other Account Amount Limit",
         default=0.0,
+        track_visibility="onchange",
     )
