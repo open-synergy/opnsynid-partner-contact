@@ -11,4 +11,5 @@ class PartnerRiskLimitPolicy(models.Model):
     single_sale_order_limit = fields.Float(
         string="Single Sale Order Limit",
         default=0.0,
+        track_visibility="onchange",
     )
