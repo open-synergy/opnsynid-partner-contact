@@ -7,6 +7,7 @@ from openerp import models, fields, api
 
 class PartnerRiskLimitPolicy(models.Model):
     _name = "partner.risk_limit_policy"
+    _inherit = ["mail.thread"]
     _description = "Partner Risk Limit Policy"
     _order = "sequence"
 
