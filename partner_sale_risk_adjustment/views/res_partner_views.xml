@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="res_partner_view_form" model="ir.ui.view">
+            <field name="name">Partner Risk Adjustment</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="partner_financial_risk_adjustment.res_partner_view_form" />
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='risk_account_amount_adjustment']" position="after">
+                        <field name="risk_sale_order_adjustment"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+   
+    </data>
+</openerp>
