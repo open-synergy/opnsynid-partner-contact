@@ -30,6 +30,15 @@ class ResPartner(models.Model):
         store=False,
     )
 
+    @api.model
+    def _update_limit_check_context(self, values):
+        _super = super(ResPartner, self)
+        ctx = _super._update_limit_check_context(values)
+        for field in iter(values):
+            if field == "risk_sale_order_limit":
+                ctx.update({"check_sale_order_limit": True})
+        return ctx
+
     @api.constrains(
         "sale_order_limit_policy", "risk_sale_order_limit",
     )
@@ -37,5 +46,6 @@ class ResPartner(models.Model):
         for partner in self:
             if partner.sale_order_limit_policy and \
                     partner.sale_order_limit_policy < \
-                    partner.risk_sale_order_limit:
+                    partner.risk_sale_order_limit and \
+                    self.env.context.get("check_sale_order_limit", False):
                 raise UserError(_("Unauthorized sale order amount"))
