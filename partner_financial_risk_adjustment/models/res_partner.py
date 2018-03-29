@@ -93,14 +93,14 @@ class ResPartner(models.Model):
         readonly=True,
     )
     risk_invoice_draft = fields.Float(
-        default="_compute_risk_invoice",
+        compute="_compute_risk_invoice",
     )
     risk_invoice_open = fields.Float(
-        default="_compute_risk_invoice",
+        compute="_compute_risk_invoice",
     )
     risk_invoice_unpaid = fields.Float(
-        default="_compute_risk_invoice",
+        compute="_compute_risk_invoice",
     )
     risk_account_amount = fields.Float(
-        default="_compute_risk_account_amount",
+        compute="_compute_risk_account_amount",
     )
