@@ -42,5 +42,5 @@ class ResPartner(models.Model):
         readonly=True,
     )
     risk_sale_order = fields.Float(
-        default="_compute_risk_sale_order",
+        compute="_compute_risk_sale_order",
     )
