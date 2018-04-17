@@ -54,8 +54,20 @@ class PartnerRiskLimitChangeRequest(models.Model):
             ],
         },
     )
+    credit_limit = fields.Float(
+        string="Total Risk Limit",
+        required=True,
+        default=0.0,
+        copy=False,
+        readonly=True,
+        states={
+            "draft": [
+                ("readonly", False),
+            ],
+        },
+    )
     risk_invoice_draft = fields.Float(
-        string="Total Draft Invoice Adjustment",
+        string="Draft Invoice Risk Limit",
         required=True,
         default=0.0,
         copy=False,
@@ -67,7 +79,7 @@ class PartnerRiskLimitChangeRequest(models.Model):
         },
     )
     risk_invoice_open = fields.Float(
-        string="Total Open Invoice Adjustment",
+        string="Open Invoice Risk Limit",
         required=True,
         default=0.0,
         copy=False,
@@ -79,7 +91,7 @@ class PartnerRiskLimitChangeRequest(models.Model):
         },
     )
     risk_invoice_unpaid = fields.Float(
-        string="Total Unpaid Invoice Adjustment",
+        string="Unpaid Invoice Adjustment",
         required=True,
         default=0.0,
         copy=False,
@@ -91,7 +103,7 @@ class PartnerRiskLimitChangeRequest(models.Model):
         },
     )
     risk_account_amount = fields.Float(
-        string="Total Account Amount Adjustment",
+        string="Account Amount Risk Limit",
         required=True,
         default=0.0,
         copy=False,
@@ -106,7 +118,7 @@ class PartnerRiskLimitChangeRequest(models.Model):
         string="Reason",
         required=True,
         readonly=True,
-        copy=False,
+        copy=True,
         states={
             "draft": [
                 ("readonly", False),
@@ -272,6 +284,9 @@ class PartnerRiskLimitChangeRequest(models.Model):
     def _prepare_partner_data(self):
         self.ensure_one()
         result = {}
+        if self.credit_limit:
+            result.update(
+                {"credit_limit": self.credit_limit})
         if self.risk_invoice_draft:
             result.update(
                 {"risk_invoice_draft_limit": self.risk_invoice_draft})
