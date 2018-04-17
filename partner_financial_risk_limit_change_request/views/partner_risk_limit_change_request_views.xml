@@ -11,7 +11,7 @@
                 <button name="action_done" string="Approve" type="object" class="oe_highlight" states="confirm"/>
                 <button name="action_cancel" string="Cancel" type="object" states="draft,confirm"/>
                 <button name="action_reset" string="Reset to Draft" type="object" states="cancel"/>
-                <field name="state" widget="statusbar"/>
+                <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
             </header>
             <sheet>
                 <label for="name"/>
@@ -26,6 +26,7 @@
                         <field name="create_date" readonly="1"/>
                     </group>
                     <group name="group_1_2" colspan="1" col="2">
+                        <field name="credit_limit"/>
                         <field name="risk_invoice_draft"/>
                         <field name="risk_invoice_open"/>
                         <field name="risk_invoice_unpaid"/>
@@ -55,6 +56,7 @@
             <field name="create_uid"/>
             <field name="create_date"/>
             <field name="partner_id"/>
+            <field name="credit_limit"/>
             <field name="risk_invoice_draft"/>
             <field name="risk_invoice_open"/>
             <field name="risk_invoice_unpaid"/>
