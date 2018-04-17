@@ -7,7 +7,7 @@
     "version": "8.0.1.0.0",
     "author": "OpenSynergy Indonesia",
     "website": "https://opensynergy-indonesia.com",
-    "license": "APGL-3",
+    "license": "AGPL-3",
     "category": "Partner Management",
     "summary": "Store Partner's Go Public Information",
     "depends": [
