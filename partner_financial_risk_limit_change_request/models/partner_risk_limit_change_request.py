@@ -2,7 +2,7 @@
 # Copyright 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from openerp import models, fields, api, SUPERUSER_ID
 from openerp.exceptions import Warning as UserError
 from openerp.tools.translate import _
 
@@ -15,6 +15,33 @@ class PartnerRiskLimitChangeRequest(models.Model):
     @api.model
     def _default_company_id(self):
         return self.env.user.company_id.id
+
+    @api.multi
+    @api.depends(
+        "state",
+        "company_id",
+    )
+    def _compute_policy(self):
+        for change in self:
+            change.confirm_ok = change.done_ok = change.cancel_ok = \
+                change.restart_ok = False
+
+            if self.env.user.id == SUPERUSER_ID:
+                change.confirm_ok = change.done_ok = change.cancel_ok = \
+                    change.restart_ok = True
+                continue
+
+            if change.company_id:
+                company = change.company_id
+                for policy in company.\
+                        _get_partner_risk_limit_change_button_policy_map():
+                    setattr(
+                        change,
+                        policy[0],
+                        company.
+                        _get_partner_risk_limit_change_button_policy(
+                            policy[1]),
+                    )
 
     name = fields.Char(
         string="# Change Request",
@@ -39,6 +66,7 @@ class PartnerRiskLimitChangeRequest(models.Model):
                 ("readonly", False),
             ],
         },
+        track_visibility="onchange",
     )
     partner_id = fields.Many2one(
         string="Customer",
@@ -53,6 +81,7 @@ class PartnerRiskLimitChangeRequest(models.Model):
                 ("readonly", False),
             ],
         },
+        track_visibility="onchange",
     )
     credit_limit = fields.Float(
         string="Total Risk Limit",
@@ -65,6 +94,7 @@ class PartnerRiskLimitChangeRequest(models.Model):
                 ("readonly", False),
             ],
         },
+        track_visibility="onchange",
     )
     risk_invoice_draft = fields.Float(
         string="Draft Invoice Risk Limit",
@@ -77,6 +107,7 @@ class PartnerRiskLimitChangeRequest(models.Model):
                 ("readonly", False),
             ],
         },
+        track_visibility="onchange",
     )
     risk_invoice_open = fields.Float(
         string="Open Invoice Risk Limit",
@@ -89,6 +120,7 @@ class PartnerRiskLimitChangeRequest(models.Model):
                 ("readonly", False),
             ],
         },
+        track_visibility="onchange",
     )
     risk_invoice_unpaid = fields.Float(
         string="Unpaid Invoice Adjustment",
@@ -101,6 +133,7 @@ class PartnerRiskLimitChangeRequest(models.Model):
                 ("readonly", False),
             ],
         },
+        track_visibility="onchange",
     )
     risk_account_amount = fields.Float(
         string="Account Amount Risk Limit",
@@ -113,6 +146,7 @@ class PartnerRiskLimitChangeRequest(models.Model):
                 ("readonly", False),
             ],
         },
+        track_visibility="onchange",
     )
     reason = fields.Text(
         string="Reason",
@@ -124,52 +158,84 @@ class PartnerRiskLimitChangeRequest(models.Model):
                 ("readonly", False),
             ],
         },
+        track_visibility="onchange",
     )
     state = fields.Selection(
         string="State",
         selection=[
             ("draft", "Draft"),
             ("confirm", "Waiting for Approval"),
-            ("done", "Done"),
+            ("done", "Valid"),
             ("cancel", "Cancelled"),
         ],
         default="draft",
         required=True,
         readonly=True,
         copy=False,
+        track_visibility="onchange",
     )
     confirmed_date = fields.Datetime(
         string="Confirmation Date",
         readonly=True,
         copy=False,
+        track_visibility="onchange",
     )
     confirmed_user_id = fields.Many2one(
         string="Confirmation By",
         comodel_name="res.users",
         readonly=True,
         copy=False,
+        track_visibility="onchange",
     )
     done_date = fields.Datetime(
         string="Approval Date",
         readonly=True,
         copy=False,
+        track_visibility="onchange",
     )
     done_user_id = fields.Many2one(
         string="Approval By",
         comodel_name="res.users",
         readonly=True,
         copy=False,
+        track_visibility="onchange",
     )
     cancelled_date = fields.Datetime(
         string="Cancellation Date",
         readonly=True,
         copy=False,
+        track_visibility="onchange",
     )
     cancelled_user_id = fields.Many2one(
         string="Cancellation By",
         comodel_name="res.users",
         readonly=True,
         copy=False,
+        track_visibility="onchange",
+    )
+    confirm_ok = fields.Boolean(
+        string="Can Confirm",
+        compute="_compute_policy",
+        store=False,
+        readonly=True,
+    )
+    done_ok = fields.Boolean(
+        string="Can Validate",
+        compute="_compute_policy",
+        store=False,
+        readonly=True,
+    )
+    cancel_ok = fields.Boolean(
+        string="Can Cancel",
+        compute="_compute_policy",
+        store=False,
+        readonly=True,
+    )
+    restart_ok = fields.Boolean(
+        string="Can Restart",
+        compute="_compute_policy",
+        store=False,
+        readonly=True,
     )
 
     @api.multi
@@ -193,9 +259,9 @@ class PartnerRiskLimitChangeRequest(models.Model):
             adjustment.write(data)
 
     @api.multi
-    def action_reset(self):
+    def action_restart(self):
         for adjustment in self:
-            data = adjustment._prepare_reset_data()
+            data = adjustment._prepare_restart_data()
             adjustment.write(data)
 
     @api.multi
@@ -229,7 +295,7 @@ class PartnerRiskLimitChangeRequest(models.Model):
         return data
 
     @api.multi
-    def _prepare_reset_data(self):
+    def _prepare_restart_data(self):
         self.ensure_one()
         data = {
             "state": "draft",
@@ -245,23 +311,27 @@ class PartnerRiskLimitChangeRequest(models.Model):
     @api.model
     def _prepare_create_data(self, values):
         name = values.get("name", False)
+        company_id = values.get("company_id", False)
         if name == "/" or not name:
-            values["name"] = self._create_sequence()
+            values["name"] = self._create_sequence(company_id)
 
         return values
 
     @api.model
-    def _create_sequence(self):
-        sequence_id = self._get_sequence()
+    def _create_sequence(self, company_id):
+        sequence_id = self._get_sequence(company_id)
         sequence = self.env["ir.sequence"].\
             next_by_id(sequence_id)
         return sequence
 
     @api.model
-    def _get_sequence(self):
-        result = self.env.ref(
-            "partner_financial_risk_limit_change_request."
-            "sequence_risk_limit_change_request")
+    def _get_sequence(self, company_id):
+        company = self.env["res.company"].browse([company_id])[0]
+        result = company.partner_risk_limit_change_sequence_id
+        if not result:
+            result = self.env.ref(
+                "partner_financial_risk_limit_change_request."
+                "sequence_risk_limit_change_request")
         return result.id
 
     @api.model
