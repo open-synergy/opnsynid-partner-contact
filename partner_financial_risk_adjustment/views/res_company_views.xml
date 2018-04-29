@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="res_company_view_form" model="ir.ui.view">
+            <field name="name">res.company form - Partner Risk Adjustment</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="page_risk_adjustment" string="Partner Risk Adjustment">
+                        <group name="group_1" colspan="4" col="2">
+                            <field name="partner_risk_adjustment_sequence_id"/>
+                            <field name="partner_risk_adjustment_confirm_grp_ids" widget="many2many_tags"/>
+                            <field name="partner_risk_adjustment_done_grp_ids" widget="many2many_tags"/>
+                            <field name="partner_risk_adjustment_cancel_grp_ids" widget="many2many_tags"/>
+                            <field name="partner_risk_adjustment_restart_grp_ids" widget="many2many_tags"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
