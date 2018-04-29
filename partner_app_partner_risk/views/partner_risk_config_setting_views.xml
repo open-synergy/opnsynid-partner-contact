@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+<data>
+
+<record id="partner_partner_risk_config_setting_view_form" model="ir.ui.view">
+    <field name="name">partner.partner_risk_config_setting form</field>
+    <field name="model">partner.partner_risk_config_setting</field>
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <form class="oe_form_configuration">
+            <header>
+                <button name="execute" string="Apply" type="object" class="oe_highlight"/>
+                or
+                <button name="cancel" string="Cancel" type="object" class="oe_link"/>
+            </header>
+            <field name="company_id" invisible="1"/>
+        </form>
+    </field>
+</record>
+
+
+<record id="partner_partner_risk_config_setting_action" model="ir.actions.act_window">
+    <field name="name">Partner Risk Configuration</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">partner.partner_risk_config_setting</field>
+    <field name="view_type">form</field>
+    <field name="target">inline</field>
+    <field name="view_mode">form</field>
+</record>
+
+<menuitem
+    id="partner_partner_risk_config_setting_menu"
+    name="General Configuration"
+    parent="partner_app_partner_risk_configuration_menu"
+    action="partner_partner_risk_config_setting_action"
+    sequence="0"
+    />
+
+
+</data>
+</openerp>
