@@ -2,7 +2,7 @@
 # Copyright 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from openerp import models, fields, api, SUPERUSER_ID
 from openerp.exceptions import Warning as UserError
 from openerp.tools.translate import _
 
@@ -15,6 +15,31 @@ class PartnerRiskAdjustment(models.Model):
     @api.model
     def _default_company_id(self):
         return self.env.user.company_id.id
+
+    @api.multi
+    @api.depends(
+        "state",
+        "company_id",
+    )
+    def _compute_policy(self):
+        for adj in self:
+            adj.confirm_ok = adj.done_ok = adj.cancel_ok = \
+                adj.restart_ok = False
+
+            if self.env.user.id == SUPERUSER_ID:
+                adj.confirm_ok = adj.done_ok = adj.cancel_ok = \
+                    adj.restart_ok = True
+                continue
+
+            if adj.company_id:
+                company = adj.company_id
+                for policy in company.\
+                        _get_partner_risk_adj_button_policy_map():
+                    setattr(
+                        adj,
+                        policy[0],
+                        company._get_partner_risk_adj_button_policy(policy[1]),
+                    )
 
     name = fields.Char(
         string="# Risk Adjustment",
@@ -39,6 +64,7 @@ class PartnerRiskAdjustment(models.Model):
                 ("readonly", False),
             ],
         },
+        track_visibility="onchange",
     )
     partner_id = fields.Many2one(
         string="Customer",
@@ -48,6 +74,7 @@ class PartnerRiskAdjustment(models.Model):
             ("customer", "=", True),
         ],
         readonly=True,
+        track_visibility="onchange",
         states={
             "draft": [
                 ("readonly", False),
@@ -59,6 +86,7 @@ class PartnerRiskAdjustment(models.Model):
         required=True,
         default=0.0,
         readonly=True,
+        track_visibility="onchange",
         states={
             "draft": [
                 ("readonly", False),
@@ -70,6 +98,7 @@ class PartnerRiskAdjustment(models.Model):
         required=True,
         default=0.0,
         readonly=True,
+        track_visibility="onchange",
         states={
             "draft": [
                 ("readonly", False),
@@ -81,6 +110,7 @@ class PartnerRiskAdjustment(models.Model):
         required=True,
         default=0.0,
         readonly=True,
+        track_visibility="onchange",
         states={
             "draft": [
                 ("readonly", False),
@@ -92,6 +122,7 @@ class PartnerRiskAdjustment(models.Model):
         required=True,
         default=0.0,
         readonly=True,
+        track_visibility="onchange",
         states={
             "draft": [
                 ("readonly", False),
@@ -102,6 +133,7 @@ class PartnerRiskAdjustment(models.Model):
         string="Reason",
         required=True,
         readonly=True,
+        track_visibility="onchange",
         states={
             "draft": [
                 ("readonly", False),
@@ -113,13 +145,14 @@ class PartnerRiskAdjustment(models.Model):
         selection=[
             ("draft", "Draft"),
             ("confirm", "Waiting for Approval"),
-            ("done", "Done"),
+            ("done", "Valid"),
             ("cancel", "Cancelled"),
         ],
         default="draft",
         required=True,
         readonly=True,
         copy=False,
+        track_visibility="onchange",
     )
     confirmed_date = fields.Datetime(
         string="Confirmation Date",
@@ -154,6 +187,30 @@ class PartnerRiskAdjustment(models.Model):
         readonly=True,
         copy=False,
     )
+    confirm_ok = fields.Boolean(
+        string="Can Confirm",
+        compute="_compute_policy",
+        store=False,
+        readonly=True,
+    )
+    done_ok = fields.Boolean(
+        string="Can Validate",
+        compute="_compute_policy",
+        store=False,
+        readonly=True,
+    )
+    cancel_ok = fields.Boolean(
+        string="Can Cancel",
+        compute="_compute_policy",
+        store=False,
+        readonly=True,
+    )
+    restart_ok = fields.Boolean(
+        string="Can Restart",
+        compute="_compute_policy",
+        store=False,
+        readonly=True,
+    )
 
     @api.multi
     def action_confirm(self):
@@ -174,9 +231,9 @@ class PartnerRiskAdjustment(models.Model):
             adjustment.write(data)
 
     @api.multi
-    def action_reset(self):
+    def action_restart(self):
         for adjustment in self:
-            data = adjustment._prepare_reset_data()
+            data = adjustment._prepare_restart_data()
             adjustment.write(data)
 
     @api.multi
@@ -210,7 +267,7 @@ class PartnerRiskAdjustment(models.Model):
         return data
 
     @api.multi
-    def _prepare_reset_data(self):
+    def _prepare_restart_data(self):
         self.ensure_one()
         data = {
             "state": "draft",
@@ -226,22 +283,26 @@ class PartnerRiskAdjustment(models.Model):
     @api.model
     def _prepare_create_data(self, values):
         name = values.get("name", False)
+        company_id = values.get("company_id", False)
         if name == "/" or not name:
-            values["name"] = self._create_sequence()
+            values["name"] = self._create_sequence(company_id)
 
         return values
 
     @api.model
-    def _create_sequence(self):
-        sequence_id = self._get_sequence()
+    def _create_sequence(self, company_id):
+        sequence_id = self._get_sequence(company_id)
         sequence = self.env["ir.sequence"].\
             next_by_id(sequence_id)
         return sequence
 
     @api.model
-    def _get_sequence(self):
-        result = self.env.ref(
-            "partner_financial_risk_adjustment.sequence_risk_adjustment")
+    def _get_sequence(self, company_id):
+        company = self.env["res.company"].browse([company_id])[0]
+        result = company.partner_risk_adjustment_sequence_id
+        if not result:
+            result = self.env.ref(
+                "partner_financial_risk_adjustment.sequence_risk_adjustment")
         return result.id
 
     @api.model

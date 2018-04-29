@@ -4,3 +4,4 @@
 
 from . import partner_risk_adjustment
 from . import res_partner
+from . import res_company
