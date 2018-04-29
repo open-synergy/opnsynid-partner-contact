@@ -5,7 +5,7 @@
         <menuitem 
             id="partner_app_risk_limit_policy_menu"
             name="Risk Limit Policy"
-            parent="partner_app.res_partner_address_book_menu"
+            parent="partner_app_partner_risk.partner_app_partner_risk_configuration_menu"
             action="partner_financial_risk_policy.partner_risk_limit_policy_action"
             sequence="100"/>
 
