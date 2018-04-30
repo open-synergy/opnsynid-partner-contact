@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Partner's Management Application",
-    "version": "8.0.2.0.0",
+    "version": "8.0.2.0.1",
     "summary": "Base module to manage partner",
     "category": "Partner",
     "website": "https://opensynergy-indonesia.com",
@@ -16,6 +16,15 @@
     ],
     "data": [
         "security/res_groups.xml",
+        "menu.xml",
+        "views/res_country_views.xml",
+        "views/res_country_group_views.xml",
+        "views/res_country_state_views.xml",
+        "views/res_partner_category_views.xml",
+        "views/res_partner_title_views.xml",
+        "views/res_partner_bank_views.xml",
+        "views/res_bank_views.xml",
+        "views/res_partner_bank_type_views.xml",
         "views/res_partner_view.xml",
     ],
 }
