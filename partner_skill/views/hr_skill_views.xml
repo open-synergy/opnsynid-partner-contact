@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 OpenSynergy Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+<data>
+<record id="hr_skill_view_tree" model="ir.ui.view">
+    <field name="name">Inherit: Partner Skill Form</field>
+    <field name="model">hr.skill</field>
+    <field name="inherit_id" ref="hr_skill.view_hr_skill_tree" />
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='employee_ids']" position="after">
+            <field name="partner_ids" />
+        </xpath>
+    </field>
+</record>
+</data>
+</openerp>
