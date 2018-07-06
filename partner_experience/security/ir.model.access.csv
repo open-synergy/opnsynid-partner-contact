@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_partner_academic_employee,partner.academic.employee,model_partner_academic,base.group_user,1,0,0,0
+access_partner_experience_employee,partner.experience.employee,model_partner_experience,base.group_user,1,0,0,0
+access_partner_curriculum_employee,partner_curriculum.employee,model_partner_curriculum,base.group_user,1,0,0,0
+access_partner_certification_employee,partner.certification.employee,model_partner_certification,base.group_user,1,0,0,0

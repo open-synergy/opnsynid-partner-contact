@@ -1,0 +1,61 @@
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="partner_certification_view_tree">
+        <field name="name">Partner Certification Tree</field>
+        <field name="model">partner.certification</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Certifications">
+                <field name="name" string="Certification"/>
+                <field name="partner_id"/>
+                <field name="certification" string="# Certificate"/>
+                <field name="partner_address_id" string="Issued By"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="partner_certification_view_form">
+        <field name="name">Partner Certification Form</field>
+        <field name="model">partner.certification</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Certification">
+                <sheet>
+                    <group name="main">
+                        <field name="partner_id"/>
+                        <field name="name" string="Certification"/>
+                        <separator string="Dates" colspan="4"/>
+                        <field name="start_date"/>
+                        <field name="expire"/>
+                        <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                        <separator string="Partner information" colspan="4"/>
+                        <field name="partner_address_id" string="Issued By"/>
+                        <field name="location"/>
+                        <group colspan="4">
+                            <separator string="Certification information" colspan="4"/>
+                            <field name="certification"/>
+                        </group>
+                        <separator string="Description" colspan="4"/>
+                        <field name="description" colspan="4" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="partner_certification_view_action">
+        <field name="name">Certifications</field>
+        <field name="res_model">partner.certification</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Certifications"
+              parent="menu_partner_experience"
+              id="partner_certification_menu"
+              action="partner_certification_view_action"/>
+
+  </data>
+</openerp>
