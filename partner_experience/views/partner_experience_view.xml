@@ -1,0 +1,56 @@
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="partner_experience_view_tree">
+        <field name="name">Partner Experience Tree</field>
+        <field name="model">partner.experience</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Professional Experiences">
+                <field name="name" string="Position"/>
+                <field name="partner_id"/>
+                <field name="partner_address_id" string="Employer"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="partner_experience_view_form">
+        <field name="name">Partner Experience Form</field>
+        <field name="model">partner.experience</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Professional Experience">
+                <sheet>
+                    <group name="main">
+                        <field name="partner_id"/>
+                        <field name="name" string="Position"/>
+                        <separator string="Dates" colspan="4"/>
+                        <field name="start_date"/>
+                        <field name="expire"/>
+                        <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                        <separator string="Partner information" colspan="4"/>
+                        <field name="partner_address_id" string="Employer"/>
+                        <field name="location"/>
+                        <separator string="Description" colspan="4"/>
+                        <field name="description" colspan="4" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="partner_experience_view_action">
+        <field name="name">Professional Experiences</field>
+        <field name="res_model">partner.experience</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Professional Experiences"
+              parent="menu_partner_experience"
+              id="partner_experience_menu"
+              action="partner_experience_view_action"/>
+
+  </data>
+</openerp>

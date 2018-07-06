@@ -1,0 +1,60 @@
+<openerp>
+  <data>
+
+    <record model="ir.ui.view" id="partner_academic_view_tree">
+        <field name="name">Partner Academic Tree</field>
+        <field name="model">partner.academic</field>
+        <field name="arch" type="xml">
+            <tree string="Academic experiences">
+                <field name="name" string="Education"/>
+                <field name="partner_id"/>
+                <field name="partner_address_id" string="Institution"/>
+                <field name="diploma"/>
+                <field name="study_field"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="partner_academic_view_form">
+        <field name="name">Partner Academic Form</field>
+        <field name="model">partner.academic</field>
+        <field name="arch" type="xml">
+            <form string="Academic experience">
+                <sheet>
+                    <group name="main">
+                        <field name="partner_id"/>
+                        <field name="name"/>
+                        <separator string="Dates" colspan="4"/>
+                        <field name="start_date"/>
+                        <field name="expire"/>
+                        <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
+                        <separator string="Partner" colspan="4"/>
+                        <field name="partner_id"/>
+                        <field name="location"/>
+                        <separator string="Academic Information" colspan="4"/>
+                        <field name="diploma"/>
+                        <field name="study_field"/>
+                        <field name="activities"/>
+                        <separator string="Additional Information" colspan="4"/>
+                        <field name="description" colspan="4" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="partner_academic_view_action">
+        <field name="name">Academic experiences</field>
+        <field name="res_model">partner.academic</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Academic Experiences"
+              parent="menu_partner_experience"
+              id="partner_academic_menu"
+              action="partner_academic_view_action"/>
+  </data>
+</openerp>
