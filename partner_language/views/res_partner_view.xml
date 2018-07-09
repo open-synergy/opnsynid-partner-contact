@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="res_partner_language_view_form">
+            <field name="name">Inherit: Partner Language Form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr='//notebook' position="inside">
+                    <page string="Languages" attrs="{'invisible':[('is_company', '=', True)]}">
+                        <field name="language_ids" nolabel="1" colspan="4">
+                            <tree string="Language" editable="bottom">
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="can_read"/>
+                                <field name="can_write"/>
+                                <field name="can_speak"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
