@@ -59,6 +59,12 @@ class ResPartner(models.Model):
         store=False,
     )
 
+    def _commercial_fields(self, cr, uid, context=None):
+        res = super(
+            ResPartner, self)._commercial_fields(cr, uid, context=None)
+        res.remove("credit_limit")
+        return res
+
     @api.multi
     def write(self, values):
         ctx = self._update_limit_check_context(values)
