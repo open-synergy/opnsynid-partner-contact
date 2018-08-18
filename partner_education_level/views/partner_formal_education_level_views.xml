@@ -39,7 +39,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Languages"
+        <menuitem name="Education Level"
                   parent="base.menu_base_config"
                   id="partner_formal_education_level_menu"
                   action="partner_formal_education_level_action"/>
