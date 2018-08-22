@@ -8,7 +8,19 @@
             parent="partner_app.partner_app_category_configuration_menu"
             action="partner_education_level.partner_formal_education_level_action"
             sequence="100"/>
+        <menuitem 
+            id="partner_app_field_of_study_menu"
+            name="Field of Study"
+            parent="partner_app.partner_app_category_configuration_menu"
+            action="partner_education_level.partner_field_of_study_action"
+            sequence="100"/>
         <record id="partner_education_level.partner_formal_education_level_menu" model="ir.ui.menu">
+            <field
+                name="groups_id"
+                eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"
+            />
+        </record>
+        <record id="partner_education_level.partner_field_of_study_menu" model="ir.ui.menu">
             <field
                 name="groups_id"
                 eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"
