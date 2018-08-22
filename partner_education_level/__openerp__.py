@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Partner Education Level",
-    "version": "8.0.1.1.0",
+    "version": "8.0.1.2.0",
     "category": "Partner",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia",
@@ -15,6 +15,7 @@
     "data": [
         "security/ir.model.access.csv",
         "views/partner_formal_education_level_views.xml",
+        "views/partner_field_of_study_views.xml",
         "views/res_partner_views.xml",
     ],
 }

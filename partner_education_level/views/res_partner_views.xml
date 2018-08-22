@@ -8,6 +8,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='title']" position="after">
                     <field name="formal_education_level_id" attrs="{'invisible':[('is_company','=',True)]}"/>
+                    <field name="field_of_study_id" attrs="{'invisible':[('is_company','=',True)]}"/>
+                    <field name="gpa" attrs="{'invisible':[('is_company','=',True)]}"/>
                 </xpath>
             </field>
         </record>
