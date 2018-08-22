@@ -9,14 +9,27 @@ class PartnerAcademic(models.Model):
     _name = "partner.academic"
     _inherit = "partner.curriculum"
 
+    #TODO: Remove
     diploma = fields.Char(
         string="Diploma",
         translate=True
     )
+    #TODO: Remove
     study_field = fields.Char(
         string="Field of study",
         translate=True
     )
+    education_level_id = fields.Many2one(
+        string="Education Level",
+        comodel_name="partner.formal_education_level",
+        )
+    field_of_study_id = fields.Many2one(
+        string="Field of Study",
+        comodel_name="partner.field_of_study",
+        )
+    gpa = fields.Float(
+        string="Latest GPA",
+        )
     activities = fields.Text(
         string="Activities and associations",
         translate=True
