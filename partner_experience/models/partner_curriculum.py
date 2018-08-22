@@ -9,6 +9,7 @@ class PartnerCurriculum(models.Model):
     _name = "partner.curriculum"
     _description = "Partner's Curriculum"
     _inherit = "ir.needaction_mixin"
+    _order = "sequence, id"
 
     name = fields.Char(
         string="Name",
@@ -20,6 +21,11 @@ class PartnerCurriculum(models.Model):
         required=True,
         domain="[('is_company', '=', False)]"
     )
+    sequence = fields.Integer(
+        string="Sequence",
+        required=True,
+        default=5,
+        )
     start_date = fields.Date(
         string="Start date"
     )

@@ -10,24 +10,28 @@
                     <page string="Academic Experiences" attrs="{'invisible':[('is_company', '=', True)]}">
                         <field name="academic_ids" context="{'default_partner_id': active_id}">
                             <tree string="Academic Experiences">
-                                <field name="name" string="Academic Experience"/>
-                                <field name="partner_id" string="Institution"/>
-                                <field name="diploma"/>
-                                <field name="study_field"/>
+                                <field name="sequence" widget="handle"/>
+                                <field name="name" string="Short Description"/>
+                                <field name="partner_address_id" string="Institution"/>
+                                <field name="education_level_id"/>
+                                <field name="field_of_study_id"/>
                                 <field name="start_date"/>
                                 <field name="end_date"/>
+                                <field name="gpa"/>
                             </tree>
                             <form string="Academic Experience">
                                 <group name="main">
-                                    <field name="name" string="Academic Experience"/>
+                                    <field name="name" string="Short Description"/>
+                                    <field name="partner_address_id" string="Institution" domain="[('is_company','=',1)]"/>
+                                    <field name="education_level_id"/>
+                                    <field name="field_of_study_id"/>
+                                    <field name="gpa"/>
+                                    <field name="activities"/>
+                                    <field name="sequence"/>
                                     <separator string="Dates" colspan="4"/>
                                     <field name="start_date"/>
                                     <field name="expire"/>
                                     <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                                    <separator string="Academic Information" colspan="4"/>
-                                    <field name="diploma"/>
-                                    <field name="study_field"/>
-                                    <field name="activities"/>
                                     <separator string="Description" colspan="4"/>
                                     <field name="description" colspan="4" nolabel="1"/>
                                 </group>
@@ -37,14 +41,21 @@
                     <page string="Professional Experiences" attrs="{'invisible':[('is_company', '=', True)]}">
                         <field name="experience_ids" context="{'default_partner_id': active_id}">
                             <tree string="Professional Experiences">
-                                <field name="name" string="Position"/>
-                                <field name="partner_id"/>
+                                <field name="sequence" widget="handle"/>
+                                <field name="partner_address_id" string="Company"/>
+                                <field name="name" string="Short Description"/>
+                                <field name="job_id"/>
+                                <field name="job_level_id"/>
                                 <field name="start_date"/>
                                 <field name="end_date"/>
                             </tree>
                             <form string="Professional Experience">
                                 <group name="main">
-                                    <field name="name" string="Position"/>
+                                    <field name="partner_address_id" string="Company" domain="[('is_company','=',1)]"/>
+                                    <field name="name" string="Short Description"/>
+                                    <field name="job_id"/>
+                                    <field name="job_level_id"/>
+                                    <field name="sequence"/>
                                     <separator string="Dates" colspan="4"/>
                                     <field name="start_date"/>
                                     <field name="expire"/>
@@ -58,6 +69,7 @@
                     <page string="Certifications" attrs="{'invisible':[('is_company', '=', True)]}">
                         <field name="certification_ids" context="{'default_partner_id': active_id}">
                             <tree string="Certifications">
+                                <field name="sequence" widget="handle"/>
                                 <field name="name" string="Certification"/>
                                 <field name="certification" string="# Certificate"/>
                                 <field name="partner_id"/>
