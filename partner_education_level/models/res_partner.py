@@ -13,3 +13,10 @@ class ResPartner(models.Model):
         string="Latest Formal Level Education",
         comodel_name="partner.formal_education_level",
     )
+    field_of_study_id = fields.Many2one(
+        string="Latest Field of Study",
+        comodel_name="partner.field_of_study",
+        )
+    gpa = fields.Float(
+        string="Latest GPA",
+        )
