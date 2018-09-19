@@ -9,12 +9,12 @@ class PartnerAcademic(models.Model):
     _name = "partner.academic"
     _inherit = "partner.curriculum"
 
-    #TODO: Remove
+    # TODO: Remove
     diploma = fields.Char(
         string="Diploma",
         translate=True
     )
-    #TODO: Remove
+    # TODO: Remove
     study_field = fields.Char(
         string="Field of study",
         translate=True
