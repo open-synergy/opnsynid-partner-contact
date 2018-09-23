@@ -20,3 +20,6 @@ class ResPartner(models.Model):
     gpa = fields.Float(
         string="Latest GPA",
         )
+    diploma = fields.Char(
+        string="Latest Diploma",
+    )
