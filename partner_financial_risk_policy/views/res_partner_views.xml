@@ -12,9 +12,14 @@
                     <field name="invoice_open_limit_policy" invisible="1"/>
                     <field name="invoice_unpaid_limit_policy" invisible="1"/>
                     <field name="account_amount_limit_policy" invisible="1"/>
+                    <field name="unset_total_risk_limit_policy" invisible="1"/>
+                    <field name="unset_invoice_draft_limit_policy" invisible="1"/>
+                    <field name="unset_invoice_open_limit_policy" invisible="1"/>
+                    <field name="unset_invoice_unpaid_limit_policy" invisible="1"/>
+                    <field name="unset_account_amount_limit_policy" invisible="1"/>                    
                 </xpath>
             </field>
         </record>
-   
+
     </data>
 </openerp>

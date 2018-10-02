@@ -14,6 +14,8 @@ class ResPartner(models.Model):
     def _compute_policy(self):
         total_risk = invoice_draft = invoice_open = \
             invoice_unpaid = account_amount = 0.0
+        unset_total_risk = unset_invoice_open = unset_invoice_draft = \
+            unset_invoice_unpaid = unset_account_amount = False
         criteria = [
             ("user_ids.id", "in", [self.env.user.id]),
         ]
@@ -25,6 +27,11 @@ class ResPartner(models.Model):
             invoice_open = policy.invoice_open_limit
             invoice_unpaid = policy.invoice_unpaid_limit
             account_amount = policy.account_amount_limit
+            unset_total_risk = policy.unset_total_risk_limit
+            unset_invoice_draft = policy.unset_invoice_draft_limit
+            unset_invoice_open = policy.unset_invoice_open_limit
+            unset_invoice_unpaid = policy.unset_invoice_unpaid_limit
+            unset_account_amount = policy.unset_account_amount_limit
 
         for partner in self:
             partner.total_risk_limit_policy = total_risk
@@ -32,6 +39,11 @@ class ResPartner(models.Model):
             partner.invoice_open_limit_policy = invoice_open
             partner.invoice_unpaid_limit_policy = invoice_unpaid
             partner.account_amount_limit_policy = account_amount
+            partner.unset_total_risk_limit_policy = unset_total_risk
+            partner.unset_invoice_draft_limit_policy = unset_invoice_draft
+            partner.unset_invoice_open_limit_policy = unset_invoice_open
+            partner.unset_invoice_unpaid_limit_policy = unset_invoice_unpaid
+            partner.unset_account_amount_limit_policy = unset_account_amount
 
     total_risk_limit_policy = fields.Float(
         string="Total Risk Limit Policy",
@@ -55,6 +67,31 @@ class ResPartner(models.Model):
     )
     account_amount_limit_policy = fields.Float(
         string="Other Account Amount Limit Policy",
+        compute="_compute_policy",
+        store=False,
+    )
+    unset_total_risk_limit_policy = fields.Boolean(
+        string="Unset Total Risk Limit Policy",
+        compute="_compute_policy",
+        store=False,
+    )
+    unset_invoice_draft_limit_policy = fields.Boolean(
+        string="Unset Invoice Draft Limit Policy",
+        compute="_compute_policy",
+        store=False,
+    )
+    unset_invoice_open_limit_policy = fields.Boolean(
+        string="Unset Invoice Open Limit Policy",
+        compute="_compute_policy",
+        store=False,
+    )
+    unset_invoice_unpaid_limit_policy = fields.Boolean(
+        string="Unset Invoice Unpaid Limit Policy",
+        compute="_compute_policy",
+        store=False,
+    )
+    unset_account_amount_limit_policy = fields.Boolean(
+        string="Unset Other Account Amount Limit Policy",
         compute="_compute_policy",
         store=False,
     )
@@ -94,9 +131,7 @@ class ResPartner(models.Model):
         return ctx
 
     @api.constrains(
-        "total_risk_limit_policy", "invoice_draft_limit_policy",
-        "invoice_open_limit_policy", "invoice_unpaid_limit_policy",
-        "account_amount_limit_policy", "credit_limit",
+        "credit_limit",
         "risk_invoice_draft_limit", "risk_invoice_open_limit",
         "risk_invoice_unpaid_limit", "risk_account_amount_limit",
     )
@@ -105,29 +140,63 @@ class ResPartner(models.Model):
             if partner.total_risk_limit_policy and \
                     partner.total_risk_limit_policy < \
                     partner.credit_limit and \
+                    partner.credit_limit > 0.0 and \
                     self.env.context.get("check_credit_limit", False):
                 raise UserError(_("Unauthorized credit limit amount"))
 
             if partner.invoice_draft_limit_policy and \
                     partner.invoice_draft_limit_policy < \
                     partner.risk_invoice_draft_limit and \
+                    partner.risk_invoice_draft_limit > 0.0 and \
                     self.env.context.get("check_invoice_draft_limit", False):
                 raise UserError(_("Unauthorized invoice draft amount"))
 
             if partner.invoice_open_limit_policy and \
                     partner.invoice_open_limit_policy < \
                     partner.risk_invoice_open_limit and \
+                    partner.risk_invoice_open_limit > 0.0 and \
                     self.env.context.get("check_invoice_open_limit", False):
                 raise UserError(_("Unauthorized invoice open amount"))
 
             if partner.invoice_unpaid_limit_policy and \
                     partner.invoice_unpaid_limit_policy < \
                     partner.risk_invoice_unpaid_limit and \
+                    partner.risk_invoice_unpaid_limit > 0.0 and \
                     self.env.context.get("check_invoice_unpaid_limit", False):
                 raise UserError(_("Unauthorized invoice unpaid amount"))
 
             if partner.account_amount_limit_policy and \
                     partner.account_amount_limit_policy < \
                     partner.risk_account_amount_limit and \
+                    partner.risk_account_amount_limit > 0.0 and \
                     self.env.context.get("check_account_amount_limit", False):
-                raise UserError(_("Unauthorized other account  amount"))
+                raise UserError(_("Unauthorized other account amount"))
+
+            if not partner.unset_total_risk_limit_policy and \
+                    partner.credit_limit <= 0.0 and \
+                    self.env.context.get("check_credit_limit", False):
+                raise UserError(_("Unauthorized to unset credit limit amount"))
+
+            if not partner.unset_invoice_draft_limit_policy and \
+                    partner.risk_invoice_draft_limit <= 0.0 and \
+                    self.env.context.get("check_invoice_draft_limit", False):
+                err_msg = _("Unauthorized to unset invoice draft amount")
+                raise UserError(err_msg)
+
+            if not partner.unset_invoice_open_limit_policy and \
+                    partner.risk_invoice_open_limit <= 0.0 and \
+                    self.env.context.get("check_invoice_open_limit", False):
+                err_msg = _("Unauthorized to unset invoice open amount")
+                raise UserError(err_msg)
+
+            if not partner.unset_invoice_unpaid_limit_policy and \
+                    partner.risk_invoice_unpaid_limit <= 0.0 and \
+                    self.env.context.get("check_invoice_unpaid_limit", False):
+                err_msg = _("Unauthorized to unset invoice unpaid amount")
+                raise UserError(err_msg)
+
+            if not partner.unset_account_amount_limit_policy and \
+                    partner.risk_account_amount_limit <= 0.0 and \
+                    self.env.context.get("check_account_amount_limit", False):
+                err_msg = _("Unauthorized to unset other account amount")
+                raise UserError(err_msg)

@@ -78,3 +78,18 @@ class PartnerRiskLimitPolicy(models.Model):
         default=0.0,
         track_visibility="onchange",
     )
+    unset_total_risk_limit = fields.Boolean(
+        string="Unset Total Risk Limit",
+    )
+    unset_invoice_draft_limit = fields.Boolean(
+        string="Unset Invoice Draft Limit",
+    )
+    unset_invoice_open_limit = fields.Boolean(
+        string="Unset Invoice Open Limit",
+    )
+    unset_invoice_unpaid_limit = fields.Boolean(
+        string="Unset Invoice Unpaid Limit",
+    )
+    unset_account_amount_limit = fields.Boolean(
+        string="Unset Account Amount Limit",
+    )
