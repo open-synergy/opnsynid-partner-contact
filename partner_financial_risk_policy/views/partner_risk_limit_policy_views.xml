@@ -18,6 +18,11 @@
                             <field name="invoice_open_limit"/>
                             <field name="invoice_unpaid_limit"/>
                             <field name="account_amount_limit"/>
+                            <field name="unset_total_risk_limit"/>
+                            <field name="unset_invoice_draft_limit"/>
+                            <field name="unset_invoice_open_limit"/>
+                            <field name="unset_invoice_unpaid_limit"/>
+                            <field name="unset_account_amount_limit"/>                            
                             <field name="notes" />
                         </group>
                     </sheet>
@@ -48,7 +53,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem 
+        <menuitem
             id="partner_risk_limit_policy_menu"
             name="Risk Limit Policy"
             parent="base.menu_config_address_book"
