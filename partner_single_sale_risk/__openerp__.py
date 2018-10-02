@@ -10,7 +10,7 @@
     "license": "AGPL-3",
     "installable": True,
     "depends": [
-        "partner_financial_risk",
+        "partner_sale_risk",
         "sale",
     ],
     "data": [
