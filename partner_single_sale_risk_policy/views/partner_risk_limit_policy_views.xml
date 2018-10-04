@@ -10,6 +10,9 @@
                     <xpath expr="//field[@name='invoice_unpaid_limit']" position="after">
                         <field name="single_sale_order_limit"/>
                     </xpath>
+                    <xpath expr="//field[@name='unset_invoice_unpaid_limit']" position="after">
+                        <field name="unset_single_sale_order_limit"/>
+                    </xpath>
                 </data>
            </field>
         </record>

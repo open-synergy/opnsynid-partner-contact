@@ -13,3 +13,6 @@ class PartnerRiskLimitPolicy(models.Model):
         default=0.0,
         track_visibility="onchange",
     )
+    unset_single_sale_order_limit = fields.Boolean(
+        string="Unset Single Sale Order Limit",
+    )
