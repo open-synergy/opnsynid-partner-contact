@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# pylint: disable=locally-disabled, manifest-required-author
 {
     "name": "Partner Single Sale Risk Configuration Policy",
-    "version": "8.0.2.0.1",
+    "version": "8.0.2.1.0",
     "category": "Partner",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia",
