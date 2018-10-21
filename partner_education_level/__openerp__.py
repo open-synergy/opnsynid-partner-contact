@@ -4,7 +4,7 @@
 # pylint: disable=locally-disabled, manifest-required-author
 {
     "name": "Partner Education Level",
-    "version": "8.0.1.3.0",
+    "version": "8.0.1.4.0",
     "category": "Partner",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia",

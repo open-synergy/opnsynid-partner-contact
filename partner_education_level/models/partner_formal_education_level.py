@@ -8,6 +8,7 @@ from openerp import models, fields
 class PartnerFormalEducationLevel(models.Model):
     _name = "partner.formal_education_level"
     _description = "Formal Education Level"
+    _order = "sequence, id"
 
     name = fields.Char(
         string="Education Level",
