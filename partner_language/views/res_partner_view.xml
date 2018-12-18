@@ -11,10 +11,10 @@
                         <field name="language_ids" nolabel="1" colspan="4">
                             <tree string="Language" editable="bottom">
                                 <field name="name"/>
-                                <field name="description"/>
-                                <field name="can_read"/>
-                                <field name="can_write"/>
-                                <field name="can_speak"/>
+                                <field name="read_rating"/>
+                                <field name="write_rating"/>
+                                <field name="speak_rating"/>
+                                <field name="listen_rating"/>
                             </tree>
                         </field>
                     </page>

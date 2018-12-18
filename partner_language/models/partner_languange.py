@@ -5,37 +5,60 @@
 from openerp import tools
 from openerp import models, fields
 
+LANGUAGE_RATING = [
+    ("0", "0 - No Proficiency"),
+    ("0+", "0+ - Memorized Proficiency"),
+    ("1", "1 - Elementary Proficiency"),
+    ("1+", "1+ - Elementary Proficiency, Plus"),
+    ("2", "2 - Limited Working Proficiency"),
+    ("2+", "2+ - Limited Working Proficiency, Plus"),
+    ("3", "3 - General Professional Proficiency"),
+    ("3+", "3+ - General Professional Proficiency, Plus"),
+    ("4", "4 - Advance Professional Proficiency"),
+    ("4+", "4+ - Advance Professional Proficiency, Plus"),
+    ("5", "5 - Funcionally Native Proficiency"),
+]
+
 
 class PartnerLanguange(models.Model):
     _name = "partner.language"
 
     name = fields.Selection(
         selection=tools.scan_languages(),
-        string=u"Language",
+        string="Language",
         required=True
     )
     description = fields.Char(
-        string=u"Description",
+        string="Description",
         size=64,
-        required=True
+        required=False
     )
     partner_id = fields.Many2one(
         comodel_name="res.partner",
-        string=u"Partner",
+        string="Partner",
         required=True
     )
-    can_read = fields.Boolean(
-        string=u"Read",
-        default=True,
-        oldname="read"
+    read_rating = fields.Selection(
+        string="Reading",
+        selection=LANGUAGE_RATING,
+        required=True,
+        default="0",
     )
-    can_write = fields.Boolean(
-        string=u"Write",
-        default=True,
-        oldname="write"
+    write_rating = fields.Selection(
+        string="Writing",
+        selection=LANGUAGE_RATING,
+        required=True,
+        default="0",
     )
-    can_speak = fields.Boolean(
-        string=u"Speak",
-        default=True,
-        oldname="speak"
+    speak_rating = fields.Selection(
+        string="Speaking",
+        selection=LANGUAGE_RATING,
+        required=True,
+        default="0",
+    )
+    listen_rating = fields.Selection(
+        string="Listening",
+        selection=LANGUAGE_RATING,
+        required=True,
+        default="0",
     )
