@@ -8,10 +8,8 @@ from openerp import fields, models
 class Skill(models.Model):
     _inherit = "hr.skill"
 
-    partner_ids = fields.Many2many(
-        comodel_name="res.partner",
-        relation="skill_partner_rel",
-        column1="skill_id",
-        column2="partner_id",
-        string="Partner(s)"
+    level_ids = fields.One2many(
+        string="Rating",
+        comodel_name="hr.skill_level",
+        inverse_name="skill_id",
     )

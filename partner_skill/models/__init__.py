@@ -4,3 +4,5 @@
 
 from . import res_partner
 from . import hr_skill
+from . import hr_skill_level
+from . import partner_skill

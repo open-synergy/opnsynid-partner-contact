@@ -9,11 +9,8 @@ from openerp import fields, models
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    skill_ids = fields.Many2many(
-        comodel_name="hr.skill",
-        relation="skill_partner_rel",
-        column1="partner_id",
-        column2="skill_id",
-        string="Skills",
-        domain="[('child_ids', '=', False)]",
+    skill_ids = fields.One2many(
+        comodel_name="partner.skill",
+        string="Skill",
+        inverse_name="partner_id",
     )

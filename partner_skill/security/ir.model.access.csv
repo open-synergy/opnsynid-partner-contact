@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_skill_level_all,hr.skill_level - All,model_hr_skill_level,,1,0,0,0
+access_hr_skill_level_employee,hr.skill_level - Employee,model_hr_skill_level,base.group_user,1,1,1,1
+access_partner_skill_all,partner.skill - All,model_partner_skill,,1,0,0,0
+access_partner_skill_employee,partner.skill - Employee,model_partner_skill,base.group_user,1,1,1,1
