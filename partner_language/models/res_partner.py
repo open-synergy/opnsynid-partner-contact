@@ -12,5 +12,5 @@ class ResPartner(models.Model):
     language_ids = fields.One2many(
         comodel_name="partner.language",
         inverse_name="partner_id",
-        string=u"Languages"
+        string="Languages"
     )
