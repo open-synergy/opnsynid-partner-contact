@@ -23,8 +23,8 @@ class PartnerExperience(models.Model):
     job_id = fields.Many2one(
         string="Position",
         comodel_name="res.partner.job_position",
-        )
+    )
     job_level_id = fields.Many2one(
         string="Job Level",
         comodel_name="partner.job_level",
-        )
+    )

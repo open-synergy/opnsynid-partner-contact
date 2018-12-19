@@ -13,7 +13,7 @@ class PartnerCurriculum(models.Model):
 
     name = fields.Char(
         string="Name",
-        required=True
+        required=False,
     )
     partner_id = fields.Many2one(
         comodel_name="res.partner",
@@ -25,7 +25,7 @@ class PartnerCurriculum(models.Model):
         string="Sequence",
         required=True,
         default=5,
-        )
+    )
     start_date = fields.Date(
         string="Start date"
     )
