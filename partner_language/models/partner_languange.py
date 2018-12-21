@@ -3,7 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import tools
-from openerp import models, fields
+from openerp import models, fields, api, _
+from openerp.exceptions import Warning as UserError
 
 LANGUAGE_RATING = [
     ("0", "0 - No Proficiency"),
@@ -62,3 +63,20 @@ class PartnerLanguange(models.Model):
         required=True,
         default="0",
     )
+
+    @api.constrains(
+        "partner_id",
+        "name",
+    )
+    def _check_no_duplicate_language(self):
+        obj_language = self.env["partner.language"]
+        for language in self:
+            criteria = [
+                ("id", "!=", language.id),
+                ("partner_id", "=", language.partner_id.id),
+                ("name", "=", language.name)
+            ]
+            result = obj_language.search_count(criteria)
+            if result > 0:
+                msg = _("No duplicate language")
+                raise UserError(msg)
