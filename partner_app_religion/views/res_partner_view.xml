@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <menuitem
+            id="partner_app_religion_menu"
+            name="Religions"
+            parent="partner_app.partner_app_category_configuration_menu"
+            action="partner_contact_religion.partner_religion_action"
+            sequence="100"/>
+        <record id="partner_contact_religion.partner_religion_menu" model="ir.ui.menu">
+            <field
+                name="groups_id"
+                eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"
+            />
+        </record>
+
+    </data>
+</openerp>
