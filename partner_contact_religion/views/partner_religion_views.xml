@@ -1,0 +1,46 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="partner_religion_view_tree">
+            <field name="name">partner.religion Tree</field>
+            <field name="model">partner.religion</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="partner_religion_view_form">
+            <field name="name">partner.religion Form</field>
+            <field name="model">partner.religion</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group name="header_1" colspan="4" col="2">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="active"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page name="note" string="Note">
+                            <field name="note" colspan="4" nolabel="1" placeholder="Add note here ..."/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="partner_religion_action">
+            <field name="name">Religion</field>
+            <field name="res_model">partner.religion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Religion"
+                  parent="base.menu_base_config"
+                  id="partner_religion_menu"
+                  action="partner_religion_action"/>
+
+    </data>
+</openerp>
