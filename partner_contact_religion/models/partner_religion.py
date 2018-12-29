@@ -10,7 +10,7 @@ class PartnerReligion(models.Model):
     _description = "Religion"
 
     name = fields.Char(
-        string="Field of Work",
+        string="Religion",
         required=True,
     )
     code = fields.Char(
