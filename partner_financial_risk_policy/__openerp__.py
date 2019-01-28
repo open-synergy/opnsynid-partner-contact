@@ -4,7 +4,7 @@
 # pylint: disable=locally-disabled, manifest-required-author
 {
     "name": "Partner Risk Configuration Policy",
-    "version": "8.0.4.1.0",
+    "version": "8.0.4.1.1",
     "category": "Partner",
     "website": "https://opensynergy-indonesia.com",
     "author": "OpenSynergy Indonesia",
