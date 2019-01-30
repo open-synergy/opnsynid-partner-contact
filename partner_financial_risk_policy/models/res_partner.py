@@ -116,7 +116,7 @@ class ResPartner(models.Model):
 
     @api.model
     def _update_limit_check_context(self, values):
-        ctx = self.env.context
+        ctx = self.env.context.copy()
         for field in iter(values):
             if field == "credit_limit":
                 ctx.update({"check_credit_limit": True})
