@@ -1,0 +1,45 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* partner_contact_family
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_contact_family
+#: view:res.partner:partner_contact_family.res_partner_view_form
+msgid "Family"
+msgstr ""
+
+#. module: partner_contact_family
+#: field:res.partner,father_id:0
+msgid "Father"
+msgstr ""
+
+#. module: partner_contact_family
+#: field:res.partner,guardian_id:0
+msgid "Guardian"
+msgstr ""
+
+#. module: partner_contact_family
+#: field:res.partner,mother_id:0
+msgid "Mother"
+msgstr ""
+
+#. module: partner_contact_family
+#: model:ir.model,name:partner_contact_family.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: partner_contact_family
+#: field:res.partner,spouse_id:0
+msgid "Spouse"
+msgstr ""
+
