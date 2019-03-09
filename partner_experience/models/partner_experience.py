@@ -8,6 +8,7 @@ from openerp import models, fields
 class PartnerExperience(models.Model):
     _name = "partner.experience"
     _inherit = "partner.curriculum"
+    _description = "Contact's Professional Experience"
 
     category = fields.Selection(
         selection=[
