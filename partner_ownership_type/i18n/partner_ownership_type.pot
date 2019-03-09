@@ -1,0 +1,78 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* partner_ownership_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_ownership_type
+#: field:partner.ownership_type,active:0
+msgid "Active"
+msgstr ""
+
+#. module: partner_ownership_type
+#: field:partner.ownership_type,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: partner_ownership_type
+#: field:partner.ownership_type,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: partner_ownership_type
+#: field:partner.ownership_type,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: partner_ownership_type
+#: field:partner.ownership_type,id:0
+msgid "ID"
+msgstr ""
+
+#. module: partner_ownership_type
+#: field:partner.ownership_type,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: partner_ownership_type
+#: field:partner.ownership_type,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: partner_ownership_type
+#: field:partner.ownership_type,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: partner_ownership_type
+#: field:partner.ownership_type,notes:0
+msgid "Notes"
+msgstr ""
+
+#. module: partner_ownership_type
+#: model:ir.actions.act_window,name:partner_ownership_type.partner_ownership_type_action
+#: model:ir.ui.menu,name:partner_ownership_type.partner_ownership_type_menu
+#: field:partner.ownership_type,name:0
+#: field:res.partner,ownership_type_id:0
+msgid "Ownership Type"
+msgstr ""
+
+#. module: partner_ownership_type
+#: model:ir.model,name:partner_ownership_type.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: partner_ownership_type
+#: model:ir.model,name:partner_ownership_type.model_partner_ownership_type
+msgid "Partner Ownership Type"
+msgstr ""
+
