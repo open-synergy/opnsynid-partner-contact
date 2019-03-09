@@ -1,0 +1,89 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* partner_contact_ethnicity
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_contact_ethnicity
+#: field:partner.ethnicity,active:0
+msgid "Active"
+msgstr ""
+
+#. module: partner_contact_ethnicity
+#: view:partner.ethnicity:partner_contact_ethnicity.partner_ethnicity_view_form
+msgid "Add note here ..."
+msgstr ""
+
+#. module: partner_contact_ethnicity
+#: field:partner.ethnicity,code:0
+msgid "Code"
+msgstr ""
+
+#. module: partner_contact_ethnicity
+#: field:partner.ethnicity,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: partner_contact_ethnicity
+#: field:partner.ethnicity,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: partner_contact_ethnicity
+#: field:partner.ethnicity,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: partner_contact_ethnicity
+#: model:ir.ui.menu,name:partner_contact_ethnicity.partner_ethnicity_menu
+msgid "Ethnicities"
+msgstr ""
+
+#. module: partner_contact_ethnicity
+#: model:ir.actions.act_window,name:partner_contact_ethnicity.partner_ethnicity_action
+#: model:ir.model,name:partner_contact_ethnicity.model_partner_ethnicity
+#: field:partner.ethnicity,name:0
+#: field:res.partner,ethnicity_id:0
+msgid "Ethnicity"
+msgstr ""
+
+#. module: partner_contact_ethnicity
+#: field:partner.ethnicity,id:0
+msgid "ID"
+msgstr ""
+
+#. module: partner_contact_ethnicity
+#: field:partner.ethnicity,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: partner_contact_ethnicity
+#: field:partner.ethnicity,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: partner_contact_ethnicity
+#: field:partner.ethnicity,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: partner_contact_ethnicity
+#: view:partner.ethnicity:partner_contact_ethnicity.partner_ethnicity_view_form
+#: field:partner.ethnicity,note:0
+msgid "Note"
+msgstr ""
+
+#. module: partner_contact_ethnicity
+#: model:ir.model,name:partner_contact_ethnicity.model_res_partner
+msgid "Partner"
+msgstr ""
+
