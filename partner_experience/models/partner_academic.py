@@ -8,6 +8,7 @@ from openerp import models, fields
 class PartnerAcademic(models.Model):
     _name = "partner.academic"
     _inherit = "partner.curriculum"
+    _description = "Contact's Academic Experience"
 
     diploma = fields.Char(
         string="Diploma",
