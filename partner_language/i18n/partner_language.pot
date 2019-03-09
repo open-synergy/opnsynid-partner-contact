@@ -1,0 +1,572 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* partner_language
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_language
+#: selection:partner.language,listen_rating:0
+#: selection:partner.language,read_rating:0
+#: selection:partner.language,speak_rating:0
+#: selection:partner.language,write_rating:0
+msgid "0 - No Proficiency"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,listen_rating:0
+#: selection:partner.language,read_rating:0
+#: selection:partner.language,speak_rating:0
+#: selection:partner.language,write_rating:0
+msgid "0+ - Memorized Proficiency"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,listen_rating:0
+#: selection:partner.language,read_rating:0
+#: selection:partner.language,speak_rating:0
+#: selection:partner.language,write_rating:0
+msgid "1 - Elementary Proficiency"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,listen_rating:0
+#: selection:partner.language,read_rating:0
+#: selection:partner.language,speak_rating:0
+#: selection:partner.language,write_rating:0
+msgid "1+ - Elementary Proficiency, Plus"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,listen_rating:0
+#: selection:partner.language,read_rating:0
+#: selection:partner.language,speak_rating:0
+#: selection:partner.language,write_rating:0
+msgid "2 - Limited Working Proficiency"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,listen_rating:0
+#: selection:partner.language,read_rating:0
+#: selection:partner.language,speak_rating:0
+#: selection:partner.language,write_rating:0
+msgid "2+ - Limited Working Proficiency, Plus"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,listen_rating:0
+#: selection:partner.language,read_rating:0
+#: selection:partner.language,speak_rating:0
+#: selection:partner.language,write_rating:0
+msgid "3 - General Professional Proficiency"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,listen_rating:0
+#: selection:partner.language,read_rating:0
+#: selection:partner.language,speak_rating:0
+#: selection:partner.language,write_rating:0
+msgid "3+ - General Professional Proficiency, Plus"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,listen_rating:0
+#: selection:partner.language,read_rating:0
+#: selection:partner.language,speak_rating:0
+#: selection:partner.language,write_rating:0
+msgid "4 - Advance Professional Proficiency"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,listen_rating:0
+#: selection:partner.language,read_rating:0
+#: selection:partner.language,speak_rating:0
+#: selection:partner.language,write_rating:0
+msgid "4+ - Advance Professional Proficiency, Plus"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,listen_rating:0
+#: selection:partner.language,read_rating:0
+#: selection:partner.language,speak_rating:0
+#: selection:partner.language,write_rating:0
+msgid "5 - Funcionally Native Proficiency"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Albanian / Shqip"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Amharic / አምሃርኛ"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Arabic / الْعَرَبيّة"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Basque / Euskara"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Bosnian / bosanski jezik"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Bulgarian / български език"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Burmese / မြန်မာဘာသာ"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Catalan / Català"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Chinese (CN) / 简体中文"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Chinese (HK)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Chinese (TW) / 正體字"
+msgstr ""
+
+#. module: partner_language
+#: field:partner.language,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: partner_language
+#: field:partner.language,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Croatian / hrvatski jezik"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Czech / Čeština"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Danish / Dansk"
+msgstr ""
+
+#. module: partner_language
+#: field:partner.language,description:0
+msgid "Description"
+msgstr ""
+
+#. module: partner_language
+#: field:partner.language,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Dutch (BE) / Nederlands (BE)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Dutch / Nederlands"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "English (AU)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "English (UK)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "English (US)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Estonian / Eesti keel"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Finnish / Suomi"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "French (BE) / Français (BE)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "French (CA) / Français (CA)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "French (CH) / Français (CH)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "French / Français"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Galician / Galego"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Georgian / ქართული ენა"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "German (CH) / Deutsch (CH)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "German / Deutsch"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Greek / Ελληνικά"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Gujarati / ગુજરાતી"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Hebrew / עִבְרִי"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Hindi / हिंदी"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Hungarian / Magyar"
+msgstr ""
+
+#. module: partner_language
+#: field:partner.language,id:0
+msgid "ID"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Indonesian / Bahasa Indonesia"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Italian / Italiano"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Japanese / 日本語"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Kabyle / Taqbaylit"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Korean (KP) / 한국어 (KP)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Korean (KR) / 한국어 (KR)"
+msgstr ""
+
+#. module: partner_language
+#: field:partner.language,name:0
+#: view:res.partner:partner_language.res_partner_language_view_form
+msgid "Language"
+msgstr ""
+
+#. module: partner_language
+#: view:res.partner:partner_language.res_partner_language_view_form
+#: field:res.partner,language_ids:0
+msgid "Languages"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Lao / ພາສາລາວ"
+msgstr ""
+
+#. module: partner_language
+#: field:partner.language,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: partner_language
+#: field:partner.language,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: partner_language
+#: field:partner.language,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Latvian / latviešu valoda"
+msgstr ""
+
+#. module: partner_language
+#: field:partner.language,listen_rating:0
+msgid "Listening"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Lithuanian / Lietuvių kalba"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Macedonian / македонски јазик"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Mongolian / монгол"
+msgstr ""
+
+#. module: partner_language
+#: code:addons/partner_language/models/partner_languange.py:81
+#, python-format
+msgid "No duplicate language"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Norwegian Bokmål / Norsk bokmål"
+msgstr ""
+
+#. module: partner_language
+#: model:ir.model,name:partner_language.model_res_partner
+#: field:partner.language,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Persian / فارس"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Polish / Język polski"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Portuguese (BR) / Português (BR)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Portuguese / Português"
+msgstr ""
+
+#. module: partner_language
+#: field:partner.language,read_rating:0
+msgid "Reading"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Romanian / română"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Russian / русский язык"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Serbian (Cyrillic) / српски"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Serbian (Latin) / srpski"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Slovak / Slovenský jazyk"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Slovenian / slovenščina"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (AR) / Español (AR)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (BO) / Español (BO)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (CL) / Español (CL)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (CO) / Español (CO)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (CR) / Español (CR)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (DO) / Español (DO)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (EC) / Español (EC)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (GT) / Español (GT)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (MX) / Español (MX)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (PA) / Español (PA)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (PE) / Español (PE)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (PY) / Español (PY)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (UY) / Español (UY)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish (VE) / Español (VE)"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Spanish / Español"
+msgstr ""
+
+#. module: partner_language
+#: field:partner.language,speak_rating:0
+msgid "Speaking"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Swedish / svenska"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Telugu / తెలుగు"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Thai / ภาษาไทย"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Turkish / Türkçe"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Ukrainian / українська"
+msgstr ""
+
+#. module: partner_language
+#: selection:partner.language,name:0
+msgid "Vietnamese / Tiếng Việt"
+msgstr ""
+
+#. module: partner_language
+#: field:partner.language,write_rating:0
+msgid "Writing"
+msgstr ""
+
