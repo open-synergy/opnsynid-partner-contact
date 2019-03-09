@@ -1,0 +1,379 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* partner_experience
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_experience
+#: view:partner.certification:partner_experience.partner_certification_view_tree
+#: view:res.partner:partner_experience.res_partner_experience_view_form
+msgid "# Certificate"
+msgstr ""
+
+#. module: partner_experience
+#: view:res.partner:partner_experience.res_partner_experience_view_form
+msgid "# Certification"
+msgstr ""
+
+#. module: partner_experience
+#: selection:partner.experience,category:0
+msgid "Academic"
+msgstr ""
+
+#. module: partner_experience
+#: view:res.partner:partner_experience.res_partner_experience_view_form
+msgid "Academic Experience"
+msgstr ""
+
+#. module: partner_experience
+#: model:ir.ui.menu,name:partner_experience.partner_academic_menu
+#: view:res.partner:partner_experience.res_partner_experience_view_form
+msgid "Academic Experiences"
+msgstr ""
+
+#. module: partner_experience
+#: view:partner.academic:partner_experience.partner_academic_view_form
+msgid "Academic Information"
+msgstr ""
+
+#. module: partner_experience
+#: view:partner.academic:partner_experience.partner_academic_view_form
+msgid "Academic experience"
+msgstr ""
+
+#. module: partner_experience
+#: model:ir.actions.act_window,name:partner_experience.partner_academic_view_action
+#: view:partner.academic:partner_experience.partner_academic_view_tree
+#: field:res.partner,academic_ids:0
+#: help:res.partner,academic_ids:0
+msgid "Academic experiences"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,activities:0
+msgid "Activities and associations"
+msgstr ""
+
+#. module: partner_experience
+#: view:partner.academic:partner_experience.partner_academic_view_form
+msgid "Additional Information"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,partner_address_id:0
+#: field:partner.certification,partner_address_id:0
+#: field:partner.curriculum,partner_address_id:0
+#: field:partner.experience,partner_address_id:0
+msgid "Address"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.experience,category:0
+#: help:partner.experience,category:0
+msgid "Category"
+msgstr ""
+
+#. module: partner_experience
+#: view:partner.certification:partner_experience.partner_certification_view_form
+#: view:partner.certification:partner_experience.partner_certification_view_tree
+#: selection:partner.experience,category:0
+#: view:res.partner:partner_experience.res_partner_experience_view_form
+msgid "Certification"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.certification,certification:0
+#: help:partner.certification,certification:0
+msgid "Certification Number"
+msgstr ""
+
+#. module: partner_experience
+#: view:partner.certification:partner_experience.partner_certification_view_form
+msgid "Certification information"
+msgstr ""
+
+#. module: partner_experience
+#: model:ir.actions.act_window,name:partner_experience.partner_certification_view_action
+#: model:ir.ui.menu,name:partner_experience.partner_certification_menu
+#: view:partner.certification:partner_experience.partner_certification_view_tree
+#: view:res.partner:partner_experience.res_partner_experience_view_form
+#: field:res.partner,certification_ids:0
+#: help:res.partner,certification_ids:0
+msgid "Certifications"
+msgstr ""
+
+#. module: partner_experience
+#: view:res.partner:partner_experience.res_partner_experience_view_form
+msgid "Company"
+msgstr ""
+
+#. module: partner_experience
+#: model:ir.model,name:partner_experience.model_partner_academic
+msgid "Contact's Academic Experience"
+msgstr ""
+
+#. module: partner_experience
+#: model:ir.model,name:partner_experience.model_partner_certification
+msgid "Contact's Certification Experience"
+msgstr ""
+
+#. module: partner_experience
+#: model:ir.model,name:partner_experience.model_partner_experience
+msgid "Contact's Professional Experience"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,create_uid:0
+#: field:partner.certification,create_uid:0
+#: field:partner.curriculum,create_uid:0
+#: field:partner.experience,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,create_date:0
+#: field:partner.certification,create_date:0
+#: field:partner.curriculum,create_date:0
+#: field:partner.experience,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: partner_experience
+#: view:partner.academic:partner_experience.partner_academic_view_form
+#: view:partner.certification:partner_experience.partner_certification_view_form
+#: view:partner.experience:partner_experience.partner_experience_view_form
+#: view:res.partner:partner_experience.res_partner_experience_view_form
+msgid "Dates"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,description:0
+#: view:partner.certification:partner_experience.partner_certification_view_form
+#: field:partner.certification,description:0
+#: field:partner.curriculum,description:0
+#: view:partner.experience:partner_experience.partner_experience_view_form
+#: field:partner.experience,description:0
+#: view:res.partner:partner_experience.res_partner_experience_view_form
+msgid "Description"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,diploma:0
+msgid "Diploma"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,display_name:0
+#: field:partner.certification,display_name:0
+#: field:partner.curriculum,display_name:0
+#: field:partner.experience,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: partner_experience
+#: view:partner.academic:partner_experience.partner_academic_view_tree
+msgid "Education"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,education_level_id:0
+msgid "Education Level"
+msgstr ""
+
+#. module: partner_experience
+#: view:partner.experience:partner_experience.partner_experience_view_form
+#: view:partner.experience:partner_experience.partner_experience_view_tree
+msgid "Employer"
+msgstr ""
+
+#. module: partner_experience
+#: help:partner.academic,partner_address_id:0
+#: help:partner.certification,partner_address_id:0
+#: help:partner.curriculum,partner_address_id:0
+#: help:partner.experience,partner_address_id:0
+msgid "Employer, School, University, Certification Authority"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,end_date:0
+#: field:partner.certification,end_date:0
+#: field:partner.curriculum,end_date:0
+#: field:partner.experience,end_date:0
+msgid "End date"
+msgstr ""
+
+#. module: partner_experience
+#: model:ir.ui.menu,name:partner_experience.menu_partner_experience
+msgid "Experiences"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,expire:0
+#: help:partner.academic,expire:0
+#: field:partner.certification,expire:0
+#: help:partner.certification,expire:0
+#: field:partner.curriculum,expire:0
+#: help:partner.curriculum,expire:0
+#: field:partner.experience,expire:0
+#: help:partner.experience,expire:0
+msgid "Expire"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,field_of_study_id:0
+msgid "Field of Study"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,study_field:0
+msgid "Field of study"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,id:0
+#: field:partner.certification,id:0
+#: field:partner.curriculum,id:0
+#: field:partner.experience,id:0
+msgid "ID"
+msgstr ""
+
+#. module: partner_experience
+#: view:partner.academic:partner_experience.partner_academic_view_tree
+#: view:res.partner:partner_experience.res_partner_experience_view_form
+msgid "Institution"
+msgstr ""
+
+#. module: partner_experience
+#: view:partner.certification:partner_experience.partner_certification_view_form
+#: view:partner.certification:partner_experience.partner_certification_view_tree
+msgid "Issued By"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.experience,job_level_id:0
+msgid "Job Level"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,__last_update:0
+#: field:partner.certification,__last_update:0
+#: field:partner.curriculum,__last_update:0
+#: field:partner.experience,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,write_uid:0
+#: field:partner.certification,write_uid:0
+#: field:partner.curriculum,write_uid:0
+#: field:partner.experience,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,write_date:0
+#: field:partner.certification,write_date:0
+#: field:partner.curriculum,write_date:0
+#: field:partner.experience,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,gpa:0
+msgid "Latest GPA"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,location:0
+#: help:partner.academic,location:0
+#: field:partner.certification,location:0
+#: help:partner.certification,location:0
+#: field:partner.curriculum,location:0
+#: help:partner.curriculum,location:0
+#: field:partner.experience,location:0
+#: help:partner.experience,location:0
+msgid "Location"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,name:0
+#: field:partner.certification,name:0
+#: field:partner.curriculum,name:0
+#: field:partner.experience,name:0
+msgid "Name"
+msgstr ""
+
+#. module: partner_experience
+#: model:ir.model,name:partner_experience.model_res_partner
+#: view:partner.academic:partner_experience.partner_academic_view_form
+#: field:partner.academic,partner_id:0
+#: field:partner.certification,partner_id:0
+#: field:partner.curriculum,partner_id:0
+#: field:partner.experience,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: partner_experience
+#: view:partner.certification:partner_experience.partner_certification_view_form
+#: view:partner.experience:partner_experience.partner_experience_view_form
+msgid "Partner information"
+msgstr ""
+
+#. module: partner_experience
+#: model:ir.model,name:partner_experience.model_partner_curriculum
+msgid "Partner's Curriculum"
+msgstr ""
+
+#. module: partner_experience
+#: view:partner.experience:partner_experience.partner_experience_view_form
+#: view:partner.experience:partner_experience.partner_experience_view_tree
+#: field:partner.experience,job_id:0
+msgid "Position"
+msgstr ""
+
+#. module: partner_experience
+#: selection:partner.experience,category:0
+msgid "Professional"
+msgstr ""
+
+#. module: partner_experience
+#: view:partner.experience:partner_experience.partner_experience_view_form
+#: view:res.partner:partner_experience.res_partner_experience_view_form
+msgid "Professional Experience"
+msgstr ""
+
+#. module: partner_experience
+#: model:ir.actions.act_window,name:partner_experience.partner_experience_view_action
+#: model:ir.ui.menu,name:partner_experience.partner_experience_menu
+#: view:partner.experience:partner_experience.partner_experience_view_tree
+#: view:res.partner:partner_experience.res_partner_experience_view_form
+#: field:res.partner,experience_ids:0
+#: help:res.partner,experience_ids:0
+msgid "Professional Experiences"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,sequence:0
+#: field:partner.certification,sequence:0
+#: field:partner.curriculum,sequence:0
+#: field:partner.experience,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: partner_experience
+#: field:partner.academic,start_date:0
+#: field:partner.certification,start_date:0
+#: field:partner.curriculum,start_date:0
+#: field:partner.experience,start_date:0
+msgid "Start date"
+msgstr ""
+
