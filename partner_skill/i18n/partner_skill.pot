@@ -1,0 +1,113 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* partner_skill
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_skill
+#: field:hr.skill_level,create_uid:0
+#: field:partner.skill,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: partner_skill
+#: field:hr.skill_level,create_date:0
+#: field:partner.skill,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: partner_skill
+#: field:hr.skill_level,description:0
+msgid "Description"
+msgstr ""
+
+#. module: partner_skill
+#: field:hr.skill_level,display_name:0
+#: field:partner.skill,display_name:0
+msgid "Display Name"
+msgstr ""
+
+#. module: partner_skill
+#: field:hr.skill_level,id:0
+#: field:partner.skill,id:0
+msgid "ID"
+msgstr ""
+
+#. module: partner_skill
+#: field:hr.skill_level,__last_update:0
+#: field:partner.skill,__last_update:0
+msgid "Last Modified on"
+msgstr ""
+
+#. module: partner_skill
+#: field:hr.skill_level,write_uid:0
+#: field:partner.skill,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: partner_skill
+#: field:hr.skill_level,write_date:0
+#: field:partner.skill,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: partner_skill
+#: view:hr.skill:partner_skill.hr_skill_view_tree
+#: field:hr.skill_level,name:0
+#: field:partner.skill,level_id:0
+msgid "Level"
+msgstr ""
+
+#. module: partner_skill
+#: code:addons/partner_skill/models/partner_skill.py:44
+#, python-format
+msgid "No duplicate skill"
+msgstr ""
+
+#. module: partner_skill
+#: model:ir.model,name:partner_skill.model_res_partner
+#: field:partner.skill,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: partner_skill
+#: model:ir.model,name:partner_skill.model_partner_skill
+msgid "Partner Skill"
+msgstr ""
+
+#. module: partner_skill
+#: field:hr.skill,level_ids:0
+msgid "Rating"
+msgstr ""
+
+#. module: partner_skill
+#: field:hr.skill_level,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: partner_skill
+#: field:hr.skill_level,skill_id:0
+#: field:partner.skill,skill_id:0
+#: field:res.partner,skill_ids:0
+msgid "Skill"
+msgstr ""
+
+#. module: partner_skill
+#: model:ir.model,name:partner_skill.model_hr_skill_level
+msgid "Skill Level"
+msgstr ""
+
+#. module: partner_skill
+#: view:res.partner:partner_skill.res_partner_skill_view_form
+msgid "Skills"
+msgstr ""
+
