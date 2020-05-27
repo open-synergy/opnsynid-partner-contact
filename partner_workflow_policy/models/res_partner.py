@@ -3,8 +3,7 @@
 # Copyright 2020 PT Simetri Sinergi Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, _
-from openerp.exceptions import Warning as UserError
+from openerp import models, fields, api
 
 
 class ResPartner(models.Model):
@@ -38,83 +37,36 @@ class ResPartner(models.Model):
         readonly=True,
         default=False,
     )
-    # Make Fields readonly
-    child_ids = fields.One2many(
-        comodel_name="res.partner",
-        readonly=True,
-    )
-    # name = fields.Char(
-    #     readonly=True,
-    #     states={
-    #         "draft": [
-    #             ("readonly", False),
-    #         ],
-    #     },
-    # )
-    # user_id = fields.Many2one(
-    #     comodel_name="res.users",
-    #     readonly=True,
-    #     states={
-    #         "draft": [
-    #             ("readonly", False),
-    #         ],
-    #     },
-    # )
-    # category_id = fields.Many2many(
-    #     comodel_name="res.partner.category",
-    #     readonly=True,
-    #     states={
-    #         "draft": [
-    #             ("readonly", False),
-    #         ],
-    #     },
-    # )
-    # ref = fields.Char(
-    #     readonly=True,
-    #     states={
-    #         "draft": [
-    #             ("readonly", False),
-    #         ],
-    #     },
-    # )
-    # lang = fields.Selection(
-    #     readonly=True,
-    #     states={
-    #         "draft": [
-    #             ("readonly", False),
-    #         ],
-    #     },
-    # )
     # Policy Fields
     confirm_ok = fields.Boolean(
         string="Can Confirm",
-        compute="_compute_policy"
+        compute="_compute_policy",
     )
     valid_ok = fields.Boolean(
         string="Can Valid",
-        compute="_compute_policy"
+        compute="_compute_policy",
     )
     restart_ok = fields.Boolean(
         string="Can Restart",
-        compute="_compute_policy"
+        compute="_compute_policy",
     )
     # Policy Fields untuk customer
     mark_customer_ok = fields.Boolean(
         string="Can Mark As Customer",
-        compute="_compute_policy"
+        compute="_compute_policy",
     )
     unmark_customer_ok = fields.Boolean(
         string="Can Un Mark As Customer",
-        compute="_compute_policy"
+        compute="_compute_policy",
     )
     # Policy Fields untuk customer
     mark_supplier_ok = fields.Boolean(
         string="Can Mark As Supplier",
-        compute="_compute_policy"
+        compute="_compute_policy",
     )
     unmark_supplier_ok = fields.Boolean(
         string="Can Un Mark As Supplier",
-        compute="_compute_policy"
+        compute="_compute_policy",
     )
     # Log Fields
     confirm_date = fields.Datetime(

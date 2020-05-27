@@ -30,6 +30,36 @@
                     <button name="action_restart" type="object" string="Set to Draft" attrs="{'invisible':['|',('state','=','draft'),('restart_ok','=',False)]}" confirm="Restart data. Are you sure?"/>
                     <field name="state" string="State" widget="statusbar" statusbar_visible="draft,confirm,valid"/>
                 </xpath>
+                <xpath expr="//field[@name='child_ids']" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly':True}
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly':[('state','!=', 'draft')]}
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly':[('state','!=', 'draft')]}
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='category_id']" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly':[('state','!=', 'draft')]}
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='ref']" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly':[('state','!=', 'draft')]}
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='lang']" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly':[('state','!=', 'draft')]}
+                    </attribute>
+                </xpath>
             </data>
             </field>
         </record>
@@ -62,9 +92,38 @@
                         </group>
                     </page>
                 </xpath>
-
                 <xpath expr="//notebook/page/field/form/sheet/group/field[@name='mobile']" position="after">
                     <field name="state" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='child_ids']" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly':True}
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly':[('active','!=', 'false')]}
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly':[('active','!=', 'false')]}
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='category_id']" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly':[('active','!=', 'false')]}
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='ref']" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly':[('active','!=', 'false')]}
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='lang']" position="attributes">
+                    <attribute name="attrs">
+                        {'readonly':[('active','!=', 'false')]}
+                    </attribute>
                 </xpath>
             </data>
             </field>
