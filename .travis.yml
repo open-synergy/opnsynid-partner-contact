@@ -29,6 +29,7 @@ jobs:
     - stage: test
       env:
         - TESTS=1 ODOO_REPO="odoo/odoo" MAKEPOT="1"
+          EXCLUDE="partner_financial_risk_adjustment,partner_financial_risk_limit_change_request,partner_financial_risk_policy,partner_sale_risk_adjustment,partner_sale_risk_invoice_link,partner_sale_risk_limit_change_request,partner_sale_risk_policy,partner_single_sale_risk,partner_single_sale_risk_limit_change_request,partner_single_sale_risk_policy,partner_app_partner_risk,partner_app_partner_risk,partner_app_partner_risk_policy,partner_app_risk_adjustment,partner_app_risk_limit_change_request"
 env:
   global:
     - VERSION="8.0" TESTS="0" LINT_CHECK="0" MAKEPOT="0"
