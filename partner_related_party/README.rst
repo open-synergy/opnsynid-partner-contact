@@ -35,8 +35,8 @@ Credits
 Contributors
 ------------
 
-* Nur Azmi <azmimr67@gmail.com>
 * Andhitia Rama <andhitia.r@gmail.com>
+* Nur Azmi <azmimr67@gmail.com>
 
 Maintainer
 ----------
