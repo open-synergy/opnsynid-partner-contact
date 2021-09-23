@@ -35,8 +35,9 @@ Credits
 Contributors
 ------------
 
-* Andhitia Rama <andhitia.r@gmail.com>
 * Nur Azmi <azmimr67@gmail.com>
+* Andhitia Rama <andhitia.r@gmail.com>
+* Michael Viriyananda <viriyananda.michael@gmail.com>
 
 Maintainer
 ----------
