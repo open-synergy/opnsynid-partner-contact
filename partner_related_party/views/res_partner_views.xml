@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 OpenSynergy Indonesia
+     Copyright 2021 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+         <data>
+             <record model="ir.ui.view" id="res_partner_related_party_view_form">
+                 <field name="name">Inherit: Partner Related Party Form</field>
+                 <field name="model">res.partner</field>
+                 <field name="inherit_id" ref="base.view_partner_form" />
+                 <field name="arch" type="xml">
+                     <notebook position="inside">
+                         <page
+                        string="Related Party"
+                        attrs="{'invisible':[('is_company', '=', False)]}"
+                    >
+                             <field
+                            name="related_party_ids"
+                            context="{'default_partner_id': active_id}"
+                        >
+                                 <tree string="Related Party">
+                                     <field name="relationship_type_id" />
+                                     <field name="transaction_type_id" />
+                                 </tree>
+                                 <form string="Related Party">
+                                     <group name="main">
+                                         <field name="relationship_type_id" />
+                                         <field name="transaction_type_id" />
+                                     </group>
+                                 </form>
+                             </field>
+                         </page>
+                     </notebook>
+                 </field>
+             </record>
+
+         </data>
+     </openerp>
