@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 OpenSynergy Indonesia
+     Copyright 2021 PT. Simetri Sinergi Indonesia
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<openerp>
+    <data>
+
+        <record model="ir.cron" id="res_partner_age_cron">
+            <field name="name">Partner Age</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field
+                eval="(DateTime.now() + timedelta(days= +1)).strftime('%Y-%m-%d 2:30:00')"
+                name="nextcall"
+            />
+            <field eval="True" name="doall" />
+            <field eval="'res_partner'" name="model" />
+            <field eval="'cron_update_age'" name="function" />
+            <field eval="'()'" name="args" />
+        </record>
+
+    </data>
+</openerp>
