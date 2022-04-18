@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields
+from openerp import fields, models
 
 
 class PartnerExperience(models.Model):
@@ -14,12 +14,12 @@ class PartnerExperience(models.Model):
         selection=[
             ("professional", "Professional"),
             ("academic", "Academic"),
-            ("certification", "Certification")
+            ("certification", "Certification"),
         ],
         string="Category",
         required=True,
         default="professional",
-        help="Category"
+        help="Category",
     )
     job_id = fields.Many2one(
         string="Position",

@@ -2,9 +2,9 @@
 # Copyright 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
-from openerp.tools.translate import _
+from openerp import api, fields, models
 from openerp.exceptions import Warning as UserError
+from openerp.tools.translate import _
 
 
 class ResPartner(models.Model):
@@ -18,8 +18,7 @@ class ResPartner(models.Model):
         criteria = [
             ("user_ids.id", "in", [self.env.user.id]),
         ]
-        policy = self.env["partner.risk_limit_policy"].search(
-            criteria, limit=1)
+        policy = self.env["partner.risk_limit_policy"].search(criteria, limit=1)
         if len(policy) == 1:
             sale_order = policy.sale_order_limit
             unset_sale_order = policy.unset_sale_order_limit
@@ -53,14 +52,17 @@ class ResPartner(models.Model):
     )
     def _check_sale_limit_policy(self):
         for partner in self:
-            if partner.sale_order_limit_policy and \
-                    partner.sale_order_limit_policy < \
-                    partner.risk_sale_order_limit and \
-                    partner.risk_sale_order_limit > 0 and \
-                    self.env.context.get("check_sale_order_limit", False):
+            if (
+                partner.sale_order_limit_policy
+                and partner.sale_order_limit_policy < partner.risk_sale_order_limit
+                and partner.risk_sale_order_limit > 0
+                and self.env.context.get("check_sale_order_limit", False)
+            ):
                 raise UserError(_("Unauthorized sale order amount"))
 
-            if not partner.unset_sale_order_limit_policy and \
-                    partner.risk_sale_order_limit <= 0.0 and \
-                    self.env.context.get("check_sale_order_limit", False):
+            if (
+                not partner.unset_sale_order_limit_policy
+                and partner.risk_sale_order_limit <= 0.0
+                and self.env.context.get("check_sale_order_limit", False)
+            ):
                 raise UserError(_("Unauthorized to sale order limit amount"))

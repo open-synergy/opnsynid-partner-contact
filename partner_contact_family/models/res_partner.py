@@ -16,7 +16,6 @@ class ResPartner(models.Model):
             ("is_company", "=", False),
             ("parent_id", "=", False),
             ("gender", "=", "male"),
-
         ],
     )
     mother_id = fields.Many2one(

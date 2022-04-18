@@ -10,11 +10,12 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     emergency_contact_ids = fields.Many2many(
-        string='Emergency Contacts',
-        comodel_name='res.partner',
-        relation='rel_partner_emergency_contact',
-        column1='partner_id',
-        column2='emergency_contact_id',
+        string="Emergency Contacts",
+        comodel_name="res.partner",
+        relation="rel_partner_emergency_contact",
+        column1="partner_id",
+        column2="emergency_contact_id",
         domain=[
-            ('is_company', '=', False),
-        ])
+            ("is_company", "=", False),
+        ],
+    )

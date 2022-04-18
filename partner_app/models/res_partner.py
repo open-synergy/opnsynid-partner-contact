@@ -2,7 +2,7 @@
 # Copyright 2017 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, api
+from openerp import api, models
 
 
 class ResPartner(models.Model):
@@ -26,9 +26,11 @@ class ResPartner(models.Model):
             ("id", "=", self.id),
             ("commercial_partner_id", "=", self.id),
         ]
-        self.env["res.partner"].search(criteria).write({
-            "customer": not self.customer,
-        })
+        self.env["res.partner"].search(criteria).write(
+            {
+                "customer": not self.customer,
+            }
+        )
 
     @api.multi
     def _toggle_supplier(self):
@@ -38,6 +40,8 @@ class ResPartner(models.Model):
             ("id", "=", self.id),
             ("commercial_partner_id", "=", self.id),
         ]
-        self.env["res.partner"].search(criteria).write({
-            "supplier": not self.supplier,
-        })
+        self.env["res.partner"].search(criteria).write(
+            {
+                "supplier": not self.supplier,
+            }
+        )

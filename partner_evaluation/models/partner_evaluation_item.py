@@ -2,7 +2,7 @@
 # Copyright 2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class PartnerEvaluationItem(models.Model):
@@ -11,8 +11,7 @@ class PartnerEvaluationItem(models.Model):
 
     @api.multi
     def _compute_allowed_qualitative_option_ids(self):
-        obj_option = self.env[
-            "partner.evaluation_item_type_qualitative_option"]
+        obj_option = self.env["partner.evaluation_item_type_qualitative_option"]
         for document in self:
             result = []
             if document.item_type_id:
@@ -36,8 +35,9 @@ class PartnerEvaluationItem(models.Model):
                 if document.qualitative_option_id:
                     answer = document.qualitative_option_id.name
             else:
-                answer = "%s %s" % (
-                    document.quantitative_value, document.uom_id.name)
+                answer = "{} {}".format(
+                    document.quantitative_value, document.uom_id.name
+                )
             document.answer_string = answer
 
     @api.multi

@@ -2,7 +2,7 @@
 # Copyright 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class ResPartner(models.Model):
@@ -14,54 +14,50 @@ class ResPartner(models.Model):
     )
     def _compute_risk_adjustment(self):
         for partner in self:
-            risk_invoice_draft_adjustment = \
-                risk_invoice_open_adjustment = \
-                risk_invoice_unpaid_adjustment = \
-                risk_account_amount_adjustment = \
-                0.0
+            risk_invoice_draft_adjustment = (
+                risk_invoice_open_adjustment
+            ) = risk_invoice_unpaid_adjustment = risk_account_amount_adjustment = 0.0
             for adj in partner.risk_adjustment_ids.filtered(
-                    lambda r: r.state == "done"):
+                lambda r: r.state == "done"
+            ):
                 risk_invoice_draft_adjustment += adj.risk_invoice_draft
                 risk_invoice_open_adjustment += adj.risk_invoice_open
                 risk_invoice_unpaid_adjustment += adj.risk_invoice_unpaid
                 risk_account_amount_adjustment += adj.risk_account_amount
-            partner.risk_invoice_draft_adjustment = \
-                risk_invoice_draft_adjustment
-            partner.risk_invoice_open_adjustment = \
-                risk_invoice_open_adjustment
-            partner.risk_invoice_unpaid_adjustment = \
-                risk_invoice_unpaid_adjustment
-            partner.risk_account_amount_adjustment = \
-                risk_account_amount_adjustment
+            partner.risk_invoice_draft_adjustment = risk_invoice_draft_adjustment
+            partner.risk_invoice_open_adjustment = risk_invoice_open_adjustment
+            partner.risk_invoice_unpaid_adjustment = risk_invoice_unpaid_adjustment
+            partner.risk_account_amount_adjustment = risk_account_amount_adjustment
 
     @api.multi
     @api.depends(
-        "invoice_ids", "invoice_ids.state",
-        "invoice_ids.amount_total", "invoice_ids.residual",
+        "invoice_ids",
+        "invoice_ids.state",
+        "invoice_ids.amount_total",
+        "invoice_ids.residual",
         "invoice_ids.company_id.invoice_unpaid_margin",
-        "risk_adjustment_ids", "risk_adjustment_ids.state",
+        "risk_adjustment_ids",
+        "risk_adjustment_ids.state",
     )
     def _compute_risk_invoice(self):
         _super = super(ResPartner, self)
         _super._compute_risk_invoice()
         for partner in self:
-            partner.risk_invoice_draft += \
-                partner.risk_invoice_draft_adjustment
-            partner.risk_invoice_open += \
-                partner.risk_invoice_open_adjustment
-            partner.risk_invoice_unpaid += \
-                partner.risk_invoice_unpaid_adjustment
+            partner.risk_invoice_draft += partner.risk_invoice_draft_adjustment
+            partner.risk_invoice_open += partner.risk_invoice_open_adjustment
+            partner.risk_invoice_unpaid += partner.risk_invoice_unpaid_adjustment
 
     @api.multi
     @api.depends(
-        "credit", "risk_invoice_open", "risk_invoice_unpaid",
+        "credit",
+        "risk_invoice_open",
+        "risk_invoice_unpaid",
     )
     def _compute_risk_account_amount(self):
         _super = super(ResPartner, self)
         _super._compute_risk_account_amount()
         for partner in self:
-            partner.risk_account_amount += \
-                partner.risk_account_amount_adjustment
+            partner.risk_account_amount += partner.risk_account_amount_adjustment
 
     risk_adjustment_ids = fields.One2many(
         string="Risk Adjustments",

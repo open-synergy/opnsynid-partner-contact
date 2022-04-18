@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <openerp>
     <data>
 
@@ -7,8 +7,12 @@
             name="Ethnicities"
             parent="partner_app.partner_app_category_configuration_menu"
             action="partner_contact_ethnicity.partner_ethnicity_action"
-            sequence="100"/>
-        <record id="partner_contact_ethnicity.partner_ethnicity_menu" model="ir.ui.menu">
+            sequence="100"
+        />
+        <record
+            id="partner_contact_ethnicity.partner_ethnicity_menu"
+            model="ir.ui.menu"
+        >
             <field
                 name="groups_id"
                 eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"

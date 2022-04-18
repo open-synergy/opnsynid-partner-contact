@@ -10,7 +10,5 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     language_ids = fields.One2many(
-        comodel_name="partner.language",
-        inverse_name="partner_id",
-        string="Languages"
+        comodel_name="partner.language", inverse_name="partner_id", string="Languages"
     )

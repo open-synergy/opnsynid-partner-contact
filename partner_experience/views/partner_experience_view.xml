@@ -6,11 +6,11 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="Professional Experiences">
-                <field name="name" string="Position"/>
-                <field name="partner_id"/>
-                <field name="partner_address_id" string="Employer"/>
-                <field name="start_date"/>
-                <field name="end_date"/>
+                <field name="name" string="Position" />
+                <field name="partner_id" />
+                <field name="partner_address_id" string="Employer" />
+                <field name="start_date" />
+                <field name="end_date" />
             </tree>
         </field>
     </record>
@@ -23,17 +23,20 @@
             <form string="Professional Experience">
                 <sheet>
                     <group name="main">
-                        <field name="partner_id"/>
-                        <field name="name" string="Position"/>
-                        <separator string="Dates" colspan="4"/>
-                        <field name="start_date"/>
-                        <field name="expire"/>
-                        <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                        <separator string="Partner information" colspan="4"/>
-                        <field name="partner_address_id" string="Employer"/>
-                        <field name="location"/>
-                        <separator string="Description" colspan="4"/>
-                        <field name="description" colspan="4" nolabel="1"/>
+                        <field name="partner_id" />
+                        <field name="name" string="Position" />
+                        <separator string="Dates" colspan="4" />
+                        <field name="start_date" />
+                        <field name="expire" />
+                        <field
+                                name="end_date"
+                                attrs="{'invisible':[('expire', '=', False)]}"
+                            />
+                        <separator string="Partner information" colspan="4" />
+                        <field name="partner_address_id" string="Employer" />
+                        <field name="location" />
+                        <separator string="Description" colspan="4" />
+                        <field name="description" colspan="4" nolabel="1" />
                     </group>
                 </sheet>
             </form>
@@ -47,10 +50,12 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="Professional Experiences"
-              parent="menu_partner_experience"
-              id="partner_experience_menu"
-              action="partner_experience_view_action"/>
+    <menuitem
+            name="Professional Experiences"
+            parent="menu_partner_experience"
+            id="partner_experience_menu"
+            action="partner_experience_view_action"
+        />
 
   </data>
 </openerp>

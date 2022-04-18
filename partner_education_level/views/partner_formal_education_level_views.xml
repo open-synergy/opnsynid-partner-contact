@@ -5,9 +5,9 @@
             <field name="model">partner.formal_education_level</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="sequence" widget="handle"/>
-                    <field name="name"/>
-                    <field name="code"/>
+                    <field name="sequence" widget="handle" />
+                    <field name="name" />
+                    <field name="code" />
                 </tree>
             </field>
         </record>
@@ -18,31 +18,41 @@
             <field name="arch" type="xml">
                 <form>
                     <group name="header_1" colspan="4" col="2">
-                        <field name="name"/>
-                        <field name="code"/>
-                        <field name="sequence"/>
-                        <field name="active"/>
+                        <field name="name" />
+                        <field name="code" />
+                        <field name="sequence" />
+                        <field name="active" />
                     </group>
                     <notebook colspan="4">
                         <page name="note" string="Note">
-                            <field name="note" colspan="4" nolabel="1" placeholder="Add note here ..."/>
+                            <field
+                                name="note"
+                                colspan="4"
+                                nolabel="1"
+                                placeholder="Add note here ..."
+                            />
                         </page>
                     </notebook>
                 </form>
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="partner_formal_education_level_action">
+        <record
+            model="ir.actions.act_window"
+            id="partner_formal_education_level_action"
+        >
             <field name="name">Formal Education Level</field>
             <field name="res_model">partner.formal_education_level</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Education Level"
-                  parent="base.menu_base_config"
-                  id="partner_formal_education_level_menu"
-                  action="partner_formal_education_level_action"/>
+        <menuitem
+            name="Education Level"
+            parent="base.menu_base_config"
+            id="partner_formal_education_level_menu"
+            action="partner_formal_education_level_action"
+        />
 
     </data>
 </openerp>

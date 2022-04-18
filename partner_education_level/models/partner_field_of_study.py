@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields
+from openerp import fields, models
 
 
 class PartnerFieldOfStudy(models.Model):
@@ -19,7 +19,7 @@ class PartnerFieldOfStudy(models.Model):
     parent_id = fields.Many2one(
         string="Parent",
         comodel_name="partner.field_of_study",
-        )
+    )
     note = fields.Text(
         string="Note",
     )

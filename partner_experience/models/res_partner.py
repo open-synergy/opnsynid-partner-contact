@@ -13,17 +13,17 @@ class ResPartner(models.Model):
         comodel_name="partner.academic",
         inverse_name="partner_id",
         string="Academic experiences",
-        help="Academic experiences"
+        help="Academic experiences",
     )
     certification_ids = fields.One2many(
         comodel_name="partner.certification",
         inverse_name="partner_id",
         string="Certifications",
-        help="Certifications"
+        help="Certifications",
     )
     experience_ids = fields.One2many(
         comodel_name="partner.experience",
         inverse_name="partner_id",
         string="Professional Experiences",
-        help="Professional Experiences"
+        help="Professional Experiences",
     )

@@ -2,7 +2,7 @@
 # Copyright 2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class PartnerEndEvaluation(models.TransientModel):
@@ -36,8 +36,7 @@ class PartnerEndEvaluation(models.TransientModel):
     )
     def _compute_manual_result(self):
         for document in self:
-            document.manual_result = \
-                document.evaluation_id.template_id.manual_result
+            document.manual_result = document.evaluation_id.template_id.manual_result
 
     evaluation_id = fields.Many2one(
         string="# Evaluation",
@@ -72,10 +71,8 @@ class PartnerEndEvaluation(models.TransientModel):
         obj_evaluation = self.env["partner.evaluation"]
         evaluation_ids = self._context.get("active_ids", [])
         if not self.manual_result:
-            result = self.evaluation_id.template_id._get_result(
-                self.evaluation_id)
+            result = self.evaluation_id.template_id._get_result(self.evaluation_id)
         else:
             result = self.result_id
         for evaluation in obj_evaluation.browse(evaluation_ids):
-            evaluation.action_done(
-                result=result, date_end=self.date_end)
+            evaluation.action_done(result=result, date_end=self.date_end)

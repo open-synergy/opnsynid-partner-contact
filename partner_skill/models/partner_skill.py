@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import fields, models, api, _
+from openerp import _, api, fields, models
 from openerp.exceptions import Warning as UserError
 
 
@@ -37,7 +37,7 @@ class PartnerSkill(models.Model):
             criteria = [
                 ("id", "!=", skill.id),
                 ("partner_id", "=", skill.partner_id.id),
-                ("skill_id", "=", skill.skill_id.id)
+                ("skill_id", "=", skill.skill_id.id),
             ]
             result = obj_skill.search_count(criteria)
             if result > 0:

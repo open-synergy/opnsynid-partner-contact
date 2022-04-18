@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <openerp>
     <data>
             <!-- Res Partner Form Views -->
@@ -6,32 +6,36 @@
             <record id="res_partner_view_form" model="ir.ui.view">
                 <field name="name">Res Partner Form</field>
                 <field name="model">res.partner</field>
-                <field name="inherit_id" ref="base.view_partner_form"/>
+                <field name="inherit_id" ref="base.view_partner_form" />
                 <field name="mode">primary</field>
-                <field name="priority" eval="90"/>
+                <field name="priority" eval="90" />
                 <field name="arch" type="xml">
                     <xpath expr="/form/sheet[1]" position="before">
                         <header>
-                            <button name="button_toggle_customer"
-                                string="Mark as Customer"
-                                type="object"
-                                attrs="{'invisible':[('customer','=',True)]}"
-                                />
-                            <button name="button_toggle_customer"
-                                string="Unmark as Customer"
-                                type="object"
-                                attrs="{'invisible':[('customer','=',False)]}"
-                                />
-                            <button name="button_toggle_supplier"
-                                string="Mark as Supplier"
-                                type="object"
-                                attrs="{'invisible':[('supplier','=',True)]}"
-                                />
-                            <button name="button_toggle_supplier"
-                                string="Unmark as Supplier"
-                                type="object"
-                                attrs="{'invisible':[('supplier','=',False)]}"
-                                />
+                            <button
+                            name="button_toggle_customer"
+                            string="Mark as Customer"
+                            type="object"
+                            attrs="{'invisible':[('customer','=',True)]}"
+                        />
+                            <button
+                            name="button_toggle_customer"
+                            string="Unmark as Customer"
+                            type="object"
+                            attrs="{'invisible':[('customer','=',False)]}"
+                        />
+                            <button
+                            name="button_toggle_supplier"
+                            string="Mark as Supplier"
+                            type="object"
+                            attrs="{'invisible':[('supplier','=',True)]}"
+                        />
+                            <button
+                            name="button_toggle_supplier"
+                            string="Unmark as Supplier"
+                            type="object"
+                            attrs="{'invisible':[('supplier','=',False)]}"
+                        />
                         </header>
                     </xpath>
                     <xpath expr="//field[@name='customer']" position="attributes">
@@ -43,20 +47,23 @@
                     <xpath expr="//div[1]/div[1]" position="replace">
                         <div class="oe_edit_only">
                             <field
-                                name="is_company"
-                                on_change="onchange_type(is_company)"
-                                class="oe_inline"
-                                invisible="True"/>
+                            name="is_company"
+                            on_change="onchange_type(is_company)"
+                            class="oe_inline"
+                            invisible="True"
+                        />
                         </div>
                     </xpath>
                     <xpath expr="//field[@name='parent_id']" position="replace">
                         <div class="oe_edit_only">
-                            <field name="parent_id"
-                                placeholder="Company"
-                                domain="[('is_company', '=', True)]"
-                                context="{'default_is_company': True, 'default_supplier': supplier, 'default_customer': customer}"
-                                invisible="True"
-                                on_change="onchange_address(use_parent_address, parent_id)"/>
+                            <field
+                            name="parent_id"
+                            placeholder="Company"
+                            domain="[('is_company', '=', True)]"
+                            context="{'default_is_company': True, 'default_supplier': supplier, 'default_customer': customer}"
+                            invisible="True"
+                            on_change="onchange_address(use_parent_address, parent_id)"
+                        />
                         </div>
                     </xpath>
                 </field>
@@ -65,15 +72,21 @@
             <record id="res_partner_view_search" model="ir.ui.view">
                 <field name="name">Res Partner Search</field>
                 <field name="model">res.partner</field>
-                <field name="inherit_id" ref="base.view_res_partner_filter"/>
+                <field name="inherit_id" ref="base.view_res_partner_filter" />
                 <field name="mode">primary</field>
-                <field name="priority" eval="90"/>
+                <field name="priority" eval="90" />
                 <field name="arch" type="xml">
                     <data>
-                        <xpath expr="//filter[@name='type_person']" position="attributes">
+                        <xpath
+                        expr="//filter[@name='type_person']"
+                        position="attributes"
+                    >
                             <attribute name="invisible">1</attribute>
                         </xpath>
-                        <xpath expr="//filter[@name='type_company']" position="attributes">
+                        <xpath
+                        expr="//filter[@name='type_company']"
+                        position="attributes"
+                    >
                             <attribute name="invisible">1</attribute>
                         </xpath>
                     </data>
@@ -85,11 +98,11 @@
             <record id="res_partner_company_view_form" model="ir.ui.view">
                 <field name="name">Res Partner Form</field>
                 <field name="model">res.partner</field>
-                <field name="inherit_id" ref="res_partner_view_form"/>
+                <field name="inherit_id" ref="res_partner_view_form" />
                 <field name="mode">primary</field>
-                <field name="priority" eval="100"/>
+                <field name="priority" eval="100" />
                 <field name="arch" type="xml">
-                    <data></data>
+                    <data />
                 </field>
             </record>
 
@@ -97,11 +110,11 @@
             <record id="res_partner_company_view_search" model="ir.ui.view">
                 <field name="name">Res Partner Search</field>
                 <field name="model">res.partner</field>
-                <field name="inherit_id" ref="res_partner_view_search"/>
+                <field name="inherit_id" ref="res_partner_view_search" />
                 <field name="mode">primary</field>
-                <field name="priority" eval="100"/>
+                <field name="priority" eval="100" />
                 <field name="arch" type="xml">
-                    <data></data>
+                    <data />
                 </field>
             </record>
 
@@ -109,11 +122,11 @@
             <record id="res_partner_company_view_tree" model="ir.ui.view">
                 <field name="name">Res Partner Tree</field>
                 <field name="model">res.partner</field>
-                <field name="inherit_id" ref="base.view_partner_tree"/>
+                <field name="inherit_id" ref="base.view_partner_tree" />
                 <field name="mode">primary</field>
-                <field name="priority" eval="100"/>
+                <field name="priority" eval="100" />
                 <field name="arch" type="xml">
-                    <data></data>
+                    <data />
                 </field>
             </record>
 
@@ -121,17 +134,20 @@
             <record id="res_partner_company_view_kanban" model="ir.ui.view">
                 <field name="name">Res Partner Kanban</field>
                 <field name="model">res.partner</field>
-                <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+                <field name="inherit_id" ref="base.res_partner_kanban_view" />
                 <field name="mode">primary</field>
-                <field name="priority" eval="100"/>
+                <field name="priority" eval="100" />
                 <field name="arch" type="xml">
-                    <data></data>
+                    <data />
                 </field>
             </record>
 
             <!-- Company Partner Action -->
 
-            <record id="res_partner_company_partner_action" model="ir.actions.act_window">
+            <record
+            id="res_partner_company_partner_action"
+            model="ir.actions.act_window"
+        >
                 <field name="name">Company Partner</field>
                 <field name="type">ir.actions.act_window</field>
                 <field name="res_model">res.partner</field>
@@ -150,7 +166,7 @@
                         ('parent_id', '=', False)
                     ]
                 </field>
-                <field name="search_view_id" ref="res_partner_view_search"/>
+                <field name="search_view_id" ref="res_partner_view_search" />
                 <field name="help" type="html">
                   <p class="oe_view_nocontent_create">
                     Click to add a contact in your address book.
@@ -162,35 +178,45 @@
                 </field>
             </record>
 
-            <record id="res_partner_company_partner_window_kanban" model="ir.actions.act_window.view">
-                <field eval="1" name="sequence"/>
+            <record
+            id="res_partner_company_partner_window_kanban"
+            model="ir.actions.act_window.view"
+        >
+                <field eval="1" name="sequence" />
                 <field name="view_mode">kanban</field>
-                <field name="view_id" ref="res_partner_company_view_kanban"/>
-                <field name="act_window_id" ref="res_partner_company_partner_action"/>
+                <field name="view_id" ref="res_partner_company_view_kanban" />
+                <field name="act_window_id" ref="res_partner_company_partner_action" />
             </record>
 
-            <record id="res_partner_company_partner_window_tree" model="ir.actions.act_window.view">
-                <field eval="2" name="sequence"/>
+            <record
+            id="res_partner_company_partner_window_tree"
+            model="ir.actions.act_window.view"
+        >
+                <field eval="2" name="sequence" />
                 <field name="view_mode">tree</field>
-                <field name="view_id" ref="res_partner_company_view_tree"/>
-                <field name="act_window_id" ref="res_partner_company_partner_action"/>
+                <field name="view_id" ref="res_partner_company_view_tree" />
+                <field name="act_window_id" ref="res_partner_company_partner_action" />
             </record>
 
-            <record id="res_partner_company_partner_window_form" model="ir.actions.act_window.view">
-                <field eval="3" name="sequence"/>
+            <record
+            id="res_partner_company_partner_window_form"
+            model="ir.actions.act_window.view"
+        >
+                <field eval="3" name="sequence" />
                 <field name="view_mode">form</field>
-                <field name="view_id" ref="res_partner_company_view_form"/>
-                <field name="act_window_id" ref="res_partner_company_partner_action"/>
+                <field name="view_id" ref="res_partner_company_view_form" />
+                <field name="act_window_id" ref="res_partner_company_partner_action" />
             </record>
 
             <!-- Company Partner Menu -->
 
-            <menuitem 
-                name="Company Partners"
-                id="res_partner_company_partner_menu"
-                parent="res_partner_partner_menu"
-                action="res_partner_company_partner_action"
-                sequence="1"/>
+            <menuitem
+            name="Company Partners"
+            id="res_partner_company_partner_menu"
+            parent="res_partner_partner_menu"
+            action="res_partner_company_partner_action"
+            sequence="1"
+        />
 
             <!-- Individual Partner Views -->
 
@@ -198,11 +224,11 @@
             <record id="res_partner_individual_view_form" model="ir.ui.view">
                 <field name="name">Res Partner Form</field>
                 <field name="model">res.partner</field>
-                <field name="inherit_id" ref="res_partner_view_form"/>
+                <field name="inherit_id" ref="res_partner_view_form" />
                 <field name="mode">primary</field>
-                <field name="priority" eval="100"/>
+                <field name="priority" eval="100" />
                 <field name="arch" type="xml">
-                    <data></data>
+                    <data />
                 </field>
             </record>
 
@@ -210,11 +236,11 @@
             <record id="res_partner_individual_view_search" model="ir.ui.view">
                 <field name="name">Res Partner Search</field>
                 <field name="model">res.partner</field>
-                <field name="inherit_id" ref="res_partner_view_search"/>
+                <field name="inherit_id" ref="res_partner_view_search" />
                 <field name="mode">primary</field>
-                <field name="priority" eval="100"/>
+                <field name="priority" eval="100" />
                 <field name="arch" type="xml">
-                    <data></data>
+                    <data />
                 </field>
             </record>
 
@@ -222,11 +248,11 @@
             <record id="res_partner_individual_view_tree" model="ir.ui.view">
                 <field name="name">Res Partner Tree</field>
                 <field name="model">res.partner</field>
-                <field name="inherit_id" ref="base.view_partner_tree"/>
+                <field name="inherit_id" ref="base.view_partner_tree" />
                 <field name="mode">primary</field>
-                <field name="priority" eval="100"/>
+                <field name="priority" eval="100" />
                 <field name="arch" type="xml">
-                    <data></data>
+                    <data />
                 </field>
             </record>
 
@@ -234,18 +260,21 @@
             <record id="res_partner_individual_view_kanban" model="ir.ui.view">
                 <field name="name">Res Partner Kanban</field>
                 <field name="model">res.partner</field>
-                <field name="inherit_id" ref="base.res_partner_kanban_view"/>
+                <field name="inherit_id" ref="base.res_partner_kanban_view" />
                 <field name="mode">primary</field>
-                <field name="priority" eval="100"/>
+                <field name="priority" eval="100" />
                 <field name="arch" type="xml">
-                    <data></data>
+                    <data />
                 </field>
             </record>
 
 
             <!-- Individual Partner Action -->
 
-                <record id="res_partner_individual_partner_action" model="ir.actions.act_window">
+                <record
+            id="res_partner_individual_partner_action"
+            model="ir.actions.act_window"
+        >
                     <field name="name">Individual Partner</field>
                     <field name="type">ir.actions.act_window</field>
                     <field name="res_model">res.partner</field>
@@ -264,7 +293,7 @@
                             ('parent_id', '=', False)
                         ]
                     </field>
-                    <field name="search_view_id" ref="res_partner_view_search"/>
+                    <field name="search_view_id" ref="res_partner_view_search" />
                     <field name="help" type="html">
                       <p class="oe_view_nocontent_create">
                         Click to add a contact in your address book.
@@ -276,34 +305,53 @@
                     </field>
                 </record>
 
-                <record id="res_partner_individual_partner_window_kanban" model="ir.actions.act_window.view">
-                    <field eval="1" name="sequence"/>
+                <record
+            id="res_partner_individual_partner_window_kanban"
+            model="ir.actions.act_window.view"
+        >
+                    <field eval="1" name="sequence" />
                     <field name="view_mode">kanban</field>
-                    <field name="view_id" ref="res_partner_individual_view_kanban"/>
-                    <field name="act_window_id" ref="res_partner_individual_partner_action"/>
+                    <field name="view_id" ref="res_partner_individual_view_kanban" />
+                    <field
+                name="act_window_id"
+                ref="res_partner_individual_partner_action"
+            />
                 </record>
 
-                <record id="res_partner_individual_partner_window_tree" model="ir.actions.act_window.view">
-                    <field eval="2" name="sequence"/>
+                <record
+            id="res_partner_individual_partner_window_tree"
+            model="ir.actions.act_window.view"
+        >
+                    <field eval="2" name="sequence" />
                     <field name="view_mode">tree</field>
-                    <field name="view_id" ref="res_partner_individual_view_tree"/>
-                    <field name="act_window_id" ref="res_partner_individual_partner_action"/>
+                    <field name="view_id" ref="res_partner_individual_view_tree" />
+                    <field
+                name="act_window_id"
+                ref="res_partner_individual_partner_action"
+            />
                 </record>
 
-                <record id="res_partner_individual_partner_window_form" model="ir.actions.act_window.view">
-                    <field eval="3" name="sequence"/>
+                <record
+            id="res_partner_individual_partner_window_form"
+            model="ir.actions.act_window.view"
+        >
+                    <field eval="3" name="sequence" />
                     <field name="view_mode">form</field>
-                    <field name="view_id" ref="res_partner_individual_view_form"/>
-                    <field name="act_window_id" ref="res_partner_individual_partner_action"/>
+                    <field name="view_id" ref="res_partner_individual_view_form" />
+                    <field
+                name="act_window_id"
+                ref="res_partner_individual_partner_action"
+            />
                 </record>
 
             <!-- Individual Partner Menu -->
 
-            <menuitem 
-                name="Individual Partners"
-                id="res_partner_individual_partner_menu"
-                parent="res_partner_partner_menu"
-                action="res_partner_individual_partner_action"
-                sequence="1"/>
+            <menuitem
+            name="Individual Partners"
+            id="res_partner_individual_partner_menu"
+            parent="res_partner_partner_menu"
+            action="res_partner_individual_partner_action"
+            sequence="1"
+        />
     </data>
 </openerp>

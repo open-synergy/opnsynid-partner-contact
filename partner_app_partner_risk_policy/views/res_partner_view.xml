@@ -1,15 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <openerp>
     <data>
 
-        <menuitem 
+        <menuitem
             id="partner_app_risk_limit_policy_menu"
             name="Risk Limit Policy"
             parent="partner_app_partner_risk.partner_app_partner_risk_configuration_menu"
             action="partner_financial_risk_policy.partner_risk_limit_policy_action"
-            sequence="100"/>
+            sequence="100"
+        />
 
-        <record id="partner_financial_risk_policy.partner_risk_limit_policy_menu" model="ir.ui.menu">
+        <record
+            id="partner_financial_risk_policy.partner_risk_limit_policy_menu"
+            model="ir.ui.menu"
+        >
             <field
                 name="groups_id"
                 eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"

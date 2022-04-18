@@ -2,9 +2,9 @@
 # Copyright 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
-from openerp.tools.translate import _
+from openerp import api, fields, models
 from openerp.exceptions import Warning as UserError
+from openerp.tools.translate import _
 
 
 class ResPartner(models.Model):
@@ -17,16 +17,14 @@ class ResPartner(models.Model):
         criteria = [
             ("user_ids.id", "in", [self.env.user.id]),
         ]
-        policy = self.env["partner.risk_limit_policy"].search(
-            criteria, limit=1)
+        policy = self.env["partner.risk_limit_policy"].search(criteria, limit=1)
         if len(policy) == 1:
             single_sale_order = policy.single_sale_order_limit
             unset_single_sale_order = policy.unset_single_sale_order_limit
 
         for partner in self:
             partner.single_sale_order_limit_policy = single_sale_order
-            partner.unset_single_sale_order_limit_policy = \
-                unset_single_sale_order
+            partner.unset_single_sale_order_limit_policy = unset_single_sale_order
 
     single_sale_order_limit_policy = fields.Float(
         string="Single Sale Order Limit Policy",
@@ -53,15 +51,20 @@ class ResPartner(models.Model):
     )
     def _check_single_sale_limit_policy(self):
         for partner in self:
-            if partner.single_sale_order_limit_policy and \
-                    partner.single_sale_order_limit_policy < \
-                    partner.risk_single_sale_order_limit and \
-                    partner.risk_single_sale_order_limit > 0 and \
-                    self._context.get("check_single_sale_order_limit", False):
+            if (
+                partner.single_sale_order_limit_policy
+                and partner.single_sale_order_limit_policy
+                < partner.risk_single_sale_order_limit
+                and partner.risk_single_sale_order_limit > 0
+                and self._context.get("check_single_sale_order_limit", False)
+            ):
                 raise UserError(_("Unauthorized single sale order amount"))
 
-            if not partner.unset_single_sale_order_limit_policy and \
-                    partner.risk_single_sale_order_limit <= 0.0 and \
-                    self._context.get("check_single_sale_order_limit", False):
+            if (
+                not partner.unset_single_sale_order_limit_policy
+                and partner.risk_single_sale_order_limit <= 0.0
+                and self._context.get("check_single_sale_order_limit", False)
+            ):
                 raise UserError(
-                    _("Unauthorized to unset single sale order limit amount"))
+                    _("Unauthorized to unset single sale order limit amount")
+                )

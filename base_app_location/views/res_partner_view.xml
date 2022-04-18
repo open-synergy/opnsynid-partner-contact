@@ -1,13 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <openerp>
     <data>
 
-        <menuitem 
+        <menuitem
             id="base_app_location_menu"
             name="Cities/Locations Management"
             parent="partner_app.res_partner_localization_menu"
             action="base_location.action_zip_tree"
-            sequence="100"/>
+            sequence="100"
+        />
 
         <record id="base_location.zip_base" model="ir.ui.menu">
             <field

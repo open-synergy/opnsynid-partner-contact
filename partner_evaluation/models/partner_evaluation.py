@@ -2,7 +2,7 @@
 # Copyright 2019 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, _
+from openerp import _, api, fields, models
 from openerp.exceptions import Warning as UserError
 
 
@@ -38,8 +38,7 @@ class PartnerEvaluation(models.Model):
     )
     def _compute_require_duration(self):
         for document in self:
-            document.require_duration = \
-                document.template_id.require_duration
+            document.require_duration = document.template_id.require_duration
 
     name = fields.Char(
         string="# Document",
@@ -263,26 +262,16 @@ Change / to assign document number manually.
         readonly=True,
     )
 
-    @api.constrains(
-        "scheduled_date_start",
-        "scheduled_date_end"
-    )
+    @api.constrains("scheduled_date_start", "scheduled_date_end")
     def _check_scheduled_date(self):
-        strWarning = _(
-            "Scheduled date end must be "
-            "greater than scheduled date end")
+        strWarning = _("Scheduled date end must be " "greater than scheduled date end")
         if self.scheduled_date_start and self.scheduled_date_end:
             if self.scheduled_date_start >= self.scheduled_date_end:
                 raise UserError(strWarning)
 
-    @api.constrains(
-        "real_date_start",
-        "real_date_end"
-    )
+    @api.constrains("real_date_start", "real_date_end")
     def _check_real_date(self):
-        strWarning = _(
-            "Real date end must be "
-            "greater than real date end")
+        strWarning = _("Real date end must be " "greater than real date end")
         if self.real_date_start and self.real_date_end:
             if self.real_date_start >= self.real_date_end:
                 raise UserError(strWarning)
@@ -300,15 +289,15 @@ Change / to assign document number manually.
     @api.multi
     def action_start(self, date_start=False):
         for document in self:
-            document.write(
-                document._prepare_start_data(date_start=date_start))
+            document.write(document._prepare_start_data(date_start=date_start))
 
     @api.multi
     def action_done(self, result=False, date_end=False):
         for document in self:
             document._compute_automatic_field()
             document.write(
-                document._prepare_done_data(result=result, date_end=date_end))
+                document._prepare_done_data(result=result, date_end=date_end)
+            )
             document._run_server_action()
 
     @api.multi
@@ -331,7 +320,8 @@ Change / to assign document number manually.
     def _compute_automatic_field(self):
         self.ensure_one()
         for measurement_item in self.item_ids.filtered(
-                lambda r: r.method == "automatic"):
+            lambda r: r.method == "automatic"
+        ):
             measurement_item._compute_automatic_field()
 
     @api.multi
@@ -368,7 +358,7 @@ Change / to assign document number manually.
     def _prepare_done_data(self, result=False, date_end=False):
         self.ensure_one()
         real_date_end = date_end or fields.Datetime.now()
-        result_id = result and result.id or False,
+        result_id = (result and result.id or False,)
         return {
             "state": "done",
             "result_id": result_id,
@@ -411,14 +401,20 @@ Change / to assign document number manually.
         self.ensure_one()
         result = []
         for item in self.template_id.item_ids:
-            result.append((0, 0, {
-                "sequence": item.sequence,
-                "item_type_id": item.item_type_id.id,
-                "question_type": item.item_type_id.question_type,
-                "uom_id": item.item_type_id.uom_id and
-                item.item_type_id.uom_id.id or
-                False,
-            }))
+            result.append(
+                (
+                    0,
+                    0,
+                    {
+                        "sequence": item.sequence,
+                        "item_type_id": item.item_type_id.id,
+                        "question_type": item.item_type_id.question_type,
+                        "uom_id": item.item_type_id.uom_id
+                        and item.item_type_id.uom_id.id
+                        or False,
+                    },
+                )
+            )
         return result
 
     @api.multi
@@ -432,9 +428,11 @@ Change / to assign document number manually.
         _super = super(PartnerEvaluation, self)
         result = _super.create(values)
         sequence = result._create_sequence()
-        result.write({
-            "name": sequence,
-        })
+        result.write(
+            {
+                "name": sequence,
+            }
+        )
         return result
 
     @api.multi

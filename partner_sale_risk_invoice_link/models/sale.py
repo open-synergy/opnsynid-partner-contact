@@ -28,8 +28,9 @@ class SaleOrder(models.Model):
         AccountInvoice = self.env["account.invoice"]
         for order in self:
             order.invoice_pending_amount = order.amount_total
-            invoice_ids = order.order_line.mapped("invoice_lines").mapped(
-                "invoice_id").ids
+            invoice_ids = (
+                order.order_line.mapped("invoice_lines").mapped("invoice_id").ids
+            )
             invoice_ids += order.mapped("invoice_ids").ids
             if order.picking_ids:
                 picking_ids = order.picking_ids.ids
@@ -45,10 +46,12 @@ class SaleOrder(models.Model):
             if not invoice_ids:
                 continue
             amount = AccountInvoice.read_group(
-                [("id", "in", invoice_ids),
-                 ("type", "in", ["out_invoice", "out_refund"])],
+                [
+                    ("id", "in", invoice_ids),
+                    ("type", "in", ["out_invoice", "out_refund"]),
+                ],
                 ["amount_total"],
-                []
+                [],
             )[0]["amount_total"]
             order.invoice_amount = amount
             order.invoice_pending_amount = order.amount_total - amount

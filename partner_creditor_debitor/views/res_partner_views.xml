@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <openerp>
     <data>
         <record model="ir.ui.view" id="res_partner_view_form">
@@ -8,11 +8,11 @@
             <field name="arch" type="xml">
                 <xpath expr="//page[@name='sales_purchases']/group" position="after">
                     <group name="creditor_debitor" colspan="4" col="2">
-                        <separator name="creditor" string="Creditors" colspan="2"/>
-                        <field name="primary_creditor_id"/>
-                        <field name="creditor_ids" colspan="2" nolabel="1"/>
-                        <separator name="debitor" string="Debitors" colspan="2"/>
-                        <field name="debitor_ids" colspan="2" nolabel="1"/>
+                        <separator name="creditor" string="Creditors" colspan="2" />
+                        <field name="primary_creditor_id" />
+                        <field name="creditor_ids" colspan="2" nolabel="1" />
+                        <separator name="debitor" string="Debitors" colspan="2" />
+                        <field name="debitor_ids" colspan="2" nolabel="1" />
                     </group>
                 </xpath>
             </field>

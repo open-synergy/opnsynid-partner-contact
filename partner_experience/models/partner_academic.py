@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields
+from openerp import fields, models
 
 
 class PartnerAcademic(models.Model):
@@ -10,15 +10,9 @@ class PartnerAcademic(models.Model):
     _inherit = "partner.curriculum"
     _description = "Contact's Academic Experience"
 
-    diploma = fields.Char(
-        string="Diploma",
-        translate=True
-    )
+    diploma = fields.Char(string="Diploma", translate=True)
     # TODO: Remove
-    study_field = fields.Char(
-        string="Field of study",
-        translate=True
-    )
+    study_field = fields.Char(string="Field of study", translate=True)
     education_level_id = fields.Many2one(
         string="Education Level",
         comodel_name="partner.formal_education_level",
@@ -30,7 +24,4 @@ class PartnerAcademic(models.Model):
     gpa = fields.Float(
         string="Latest GPA",
     )
-    activities = fields.Text(
-        string="Activities and associations",
-        translate=True
-    )
+    activities = fields.Text(string="Activities and associations", translate=True)

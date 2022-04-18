@@ -1,32 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <openerp>
 <data noupdate="1">
 
     <record id="partner_curriculum_user_rule" model="ir.rule">
         <field name="name">Curriculum user rule</field>
-        <field name="model_id" ref="model_partner_curriculum"/>
-        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        <field name="model_id" ref="model_partner_curriculum" />
+        <field name="groups" eval="[(4,ref('base.group_user'))]" />
         <field name="domain_force">[('partner_id.user_id','=',user.id)]</field>
     </record>
-    
+
     <record id="partner_academic_user_rule" model="ir.rule">
         <field name="name">Academic experiences user rule</field>
-        <field name="model_id" ref="model_partner_academic"/>
-        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        <field name="model_id" ref="model_partner_academic" />
+        <field name="groups" eval="[(4,ref('base.group_user'))]" />
         <field name="domain_force">[('partner_id.user_id','=',user.id)]</field>
     </record>
-    
+
     <record id="partner_experience_user_rule" model="ir.rule">
         <field name="name">Profesional experiences user rule</field>
-        <field name="model_id" ref="model_partner_experience"/>
-        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        <field name="model_id" ref="model_partner_experience" />
+        <field name="groups" eval="[(4,ref('base.group_user'))]" />
         <field name="domain_force">[('partner_id.user_id','=',user.id)]</field>
     </record>
-    
+
     <record id="partner_certification_user_rule" model="ir.rule">
         <field name="name">Certifications user rule</field>
-        <field name="model_id" ref="model_partner_certification"/>
-        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        <field name="model_id" ref="model_partner_certification" />
+        <field name="groups" eval="[(4,ref('base.group_user'))]" />
         <field name="domain_force">[('partner_id.user_id','=',user.id)]</field>
     </record>
 
