@@ -2,8 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import tools
-from openerp import models, fields, api, _
+from openerp import _, api, fields, models, tools
 from openerp.exceptions import Warning as UserError
 
 LANGUAGE_RATING = [
@@ -25,19 +24,11 @@ class PartnerLanguange(models.Model):
     _name = "partner.language"
 
     name = fields.Selection(
-        selection=tools.scan_languages(),
-        string="Language",
-        required=True
+        selection=tools.scan_languages(), string="Language", required=True
     )
-    description = fields.Char(
-        string="Description",
-        size=64,
-        required=False
-    )
+    description = fields.Char(string="Description", size=64, required=False)
     partner_id = fields.Many2one(
-        comodel_name="res.partner",
-        string="Partner",
-        required=True
+        comodel_name="res.partner", string="Partner", required=True
     )
     read_rating = fields.Selection(
         string="Reading",
@@ -74,7 +65,7 @@ class PartnerLanguange(models.Model):
             criteria = [
                 ("id", "!=", language.id),
                 ("partner_id", "=", language.partner_id.id),
-                ("name", "=", language.name)
+                ("name", "=", language.name),
             ]
             result = obj_language.search_count(criteria)
             if result > 0:

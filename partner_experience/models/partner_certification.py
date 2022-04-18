@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields
+from openerp import fields, models
 
 
 class PartnerCertification(models.Model):
@@ -11,6 +11,5 @@ class PartnerCertification(models.Model):
     _description = "Contact's Certification Experience"
 
     certification = fields.Char(
-        string="Certification Number",
-        help="Certification Number"
+        string="Certification Number", help="Certification Number"
     )

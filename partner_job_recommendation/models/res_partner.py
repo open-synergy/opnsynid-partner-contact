@@ -17,4 +17,5 @@ class ResPartner(models.Model):
         column2="job_recommendation_id",
         domain=[
             ("is_company", "=", False),
-        ])
+        ],
+    )

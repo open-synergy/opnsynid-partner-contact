@@ -2,7 +2,7 @@
 # Copyright 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, SUPERUSER_ID
+from openerp import SUPERUSER_ID, api, fields, models
 from openerp.exceptions import Warning as UserError
 from openerp.tools.translate import _
 
@@ -23,24 +23,25 @@ class PartnerRiskLimitChangeRequest(models.Model):
     )
     def _compute_policy(self):
         for change in self:
-            change.confirm_ok = change.done_ok = change.cancel_ok = \
-                change.restart_ok = False
+            change.confirm_ok = (
+                change.done_ok
+            ) = change.cancel_ok = change.restart_ok = False
 
             if self.env.user.id == SUPERUSER_ID:
-                change.confirm_ok = change.done_ok = change.cancel_ok = \
-                    change.restart_ok = True
+                change.confirm_ok = (
+                    change.done_ok
+                ) = change.cancel_ok = change.restart_ok = True
                 continue
 
             if change.company_id:
                 company = change.company_id
-                for policy in company.\
-                        _get_partner_risk_limit_change_button_policy_map():
+                for (
+                    policy
+                ) in company._get_partner_risk_limit_change_button_policy_map():
                     setattr(
                         change,
                         policy[0],
-                        company.
-                        _get_partner_risk_limit_change_button_policy(
-                            policy[1]),
+                        company._get_partner_risk_limit_change_button_policy(policy[1]),
                     )
 
     name = fields.Char(
@@ -320,8 +321,7 @@ class PartnerRiskLimitChangeRequest(models.Model):
     @api.model
     def _create_sequence(self, company_id):
         sequence_id = self._get_sequence(company_id)
-        sequence = self.env["ir.sequence"].\
-            next_by_id(sequence_id)
+        sequence = self.env["ir.sequence"].next_by_id(sequence_id)
         return sequence
 
     @api.model
@@ -331,7 +331,8 @@ class PartnerRiskLimitChangeRequest(models.Model):
         if not result:
             result = self.env.ref(
                 "partner_financial_risk_limit_change_request."
-                "sequence_risk_limit_change_request")
+                "sequence_risk_limit_change_request"
+            )
         return result.id
 
     @api.model
@@ -355,17 +356,13 @@ class PartnerRiskLimitChangeRequest(models.Model):
         self.ensure_one()
         result = {}
         if self.credit_limit:
-            result.update(
-                {"credit_limit": self.credit_limit})
+            result.update({"credit_limit": self.credit_limit})
         if self.risk_invoice_draft:
-            result.update(
-                {"risk_invoice_draft_limit": self.risk_invoice_draft})
+            result.update({"risk_invoice_draft_limit": self.risk_invoice_draft})
         if self.risk_invoice_open:
             result.update({"risk_invoice_open_limit": self.risk_invoice_open})
         if self.risk_invoice_unpaid:
-            result.update(
-                {"risk_invoice_unpaid_limit": self.risk_invoice_unpaid})
+            result.update({"risk_invoice_unpaid_limit": self.risk_invoice_unpaid})
         if self.risk_account_amount:
-            result.update(
-                {"risk_account_amount_limit": self.risk_account_amount})
+            result.update({"risk_account_amount_limit": self.risk_account_amount})
         return result

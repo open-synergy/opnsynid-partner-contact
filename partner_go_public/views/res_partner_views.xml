@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <openerp>
     <data>
         <!-- TODO: put here a reminder on what to do at the first edition -->
@@ -6,11 +6,14 @@
             <field name="name">res.partner form.view</field>
             <field name="model">res.partner</field>
             <field name="view_type">form</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="inherit_id" ref="base.view_partner_form" />
             <field name="arch" type="xml">
               <data>
-    <xpath expr="//page[@name='sales_purchases']//field[@name='supplier']" position="after">
-        <field name="go_public" attrs="{'invisible': [['is_company', '=', False]]}"/>
+    <xpath
+                        expr="//page[@name='sales_purchases']//field[@name='supplier']"
+                        position="after"
+                    >
+        <field name="go_public" attrs="{'invisible': [['is_company', '=', False]]}" />
     </xpath>
 </data>
             </field>

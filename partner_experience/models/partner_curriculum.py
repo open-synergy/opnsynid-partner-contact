@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields
+from openerp import fields, models
 
 
 class PartnerCurriculum(models.Model):
@@ -19,34 +19,20 @@ class PartnerCurriculum(models.Model):
         comodel_name="res.partner",
         string="Partner",
         required=True,
-        domain="[('is_company', '=', False)]"
+        domain="[('is_company', '=', False)]",
     )
     sequence = fields.Integer(
         string="Sequence",
         required=True,
         default=5,
     )
-    start_date = fields.Date(
-        string="Start date"
-    )
-    end_date = fields.Date(
-        string="End date"
-    )
-    description = fields.Text(
-        string="Description"
-    )
+    start_date = fields.Date(string="Start date")
+    end_date = fields.Date(string="End date")
+    description = fields.Text(string="Description")
     partner_address_id = fields.Many2one(
         comodel_name="res.partner",
         string="Address",
-        help="Employer, School, University, "
-             "Certification Authority"
+        help="Employer, School, University, " "Certification Authority",
     )
-    location = fields.Char(
-        string="Location",
-        help="Location"
-    )
-    expire = fields.Boolean(
-        string="Expire",
-        help="Expire",
-        default=True
-    )
+    location = fields.Char(string="Location", help="Location")
+    expire = fields.Boolean(string="Expire", help="Expire", default=True)

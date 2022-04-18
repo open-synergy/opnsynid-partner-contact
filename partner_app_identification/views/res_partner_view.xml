@@ -1,13 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <openerp>
     <data>
 
-        <menuitem 
+        <menuitem
             id="partner_app_identification_menu"
             name="Partner ID Categories"
             parent="partner_app.res_partner_address_book_menu"
             action="partner_identification.action_partner_id_category"
-            sequence="100"/>
+            sequence="100"
+        />
 
         <record id="partner_identification.menu_partner_id_category" model="ir.ui.menu">
             <field

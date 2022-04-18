@@ -1,13 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <openerp>
     <data>
 
-        <menuitem 
+        <menuitem
             id="res_partner_lau_menu"
             name="LAU Items"
             parent="partner_app.res_partner_localization_menu"
             action="base_location_lau.res_partner_lau_action"
-            sequence="101"/>
+            sequence="101"
+        />
 
         <record id="base_location_lau.res_partner_lau_menu" model="ir.ui.menu">
             <field

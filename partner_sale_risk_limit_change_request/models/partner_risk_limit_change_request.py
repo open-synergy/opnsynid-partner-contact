@@ -2,7 +2,7 @@
 # Copyright 2018 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class PartnerRiskLimitChangeRequest(models.Model):
@@ -27,6 +27,5 @@ class PartnerRiskLimitChangeRequest(models.Model):
         _super = super(PartnerRiskLimitChangeRequest, self)
         result = _super._prepare_partner_data()
         if self.risk_sale_order:
-            result.update(
-                {"risk_sale_order_limit": self.risk_sale_order})
+            result.update({"risk_sale_order_limit": self.risk_sale_order})
         return result

@@ -5,9 +5,9 @@
             <field name="model">partner.job_level</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="sequence" widget="handle"/>
-                    <field name="name"/>
-                    <field name="code"/>
+                    <field name="sequence" widget="handle" />
+                    <field name="name" />
+                    <field name="code" />
                 </tree>
             </field>
         </record>
@@ -18,14 +18,19 @@
             <field name="arch" type="xml">
                 <form>
                     <group name="header_1" colspan="4" col="2">
-                        <field name="name"/>
-                        <field name="code"/>
-                        <field name="sequence"/>
-                        <field name="active"/>
+                        <field name="name" />
+                        <field name="code" />
+                        <field name="sequence" />
+                        <field name="active" />
                     </group>
                     <notebook colspan="4">
                         <page name="note" string="Note">
-                            <field name="note" colspan="4" nolabel="1" placeholder="Add note here ..."/>
+                            <field
+                                name="note"
+                                colspan="4"
+                                nolabel="1"
+                                placeholder="Add note here ..."
+                            />
                         </page>
                     </notebook>
                 </form>
@@ -39,10 +44,12 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem name="Job Level"
-                  parent="base.menu_base_config"
-                  id="partner_job_level_menu"
-                  action="partner_job_level_action"/>
+        <menuitem
+            name="Job Level"
+            parent="base.menu_base_config"
+            id="partner_job_level_menu"
+            action="partner_job_level_action"
+        />
 
     </data>
 </openerp>

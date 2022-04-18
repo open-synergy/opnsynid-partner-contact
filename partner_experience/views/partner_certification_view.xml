@@ -6,12 +6,12 @@
         <field name="type">tree</field>
         <field name="arch" type="xml">
             <tree string="Certifications">
-                <field name="name" string="Certification"/>
-                <field name="partner_id"/>
-                <field name="certification" string="# Certificate"/>
-                <field name="partner_address_id" string="Issued By"/>
-                <field name="start_date"/>
-                <field name="end_date"/>
+                <field name="name" string="Certification" />
+                <field name="partner_id" />
+                <field name="certification" string="# Certificate" />
+                <field name="partner_address_id" string="Issued By" />
+                <field name="start_date" />
+                <field name="end_date" />
             </tree>
         </field>
     </record>
@@ -24,21 +24,24 @@
             <form string="Certification">
                 <sheet>
                     <group name="main">
-                        <field name="partner_id"/>
-                        <field name="name" string="Certification"/>
-                        <separator string="Dates" colspan="4"/>
-                        <field name="start_date"/>
-                        <field name="expire"/>
-                        <field name="end_date" attrs="{'invisible':[('expire', '=', False)]}"/>
-                        <separator string="Partner information" colspan="4"/>
-                        <field name="partner_address_id" string="Issued By"/>
-                        <field name="location"/>
+                        <field name="partner_id" />
+                        <field name="name" string="Certification" />
+                        <separator string="Dates" colspan="4" />
+                        <field name="start_date" />
+                        <field name="expire" />
+                        <field
+                                name="end_date"
+                                attrs="{'invisible':[('expire', '=', False)]}"
+                            />
+                        <separator string="Partner information" colspan="4" />
+                        <field name="partner_address_id" string="Issued By" />
+                        <field name="location" />
                         <group colspan="4">
-                            <separator string="Certification information" colspan="4"/>
-                            <field name="certification"/>
+                            <separator string="Certification information" colspan="4" />
+                            <field name="certification" />
                         </group>
-                        <separator string="Description" colspan="4"/>
-                        <field name="description" colspan="4" nolabel="1"/>
+                        <separator string="Description" colspan="4" />
+                        <field name="description" colspan="4" nolabel="1" />
                     </group>
                 </sheet>
             </form>
@@ -52,10 +55,12 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="Certifications"
-              parent="menu_partner_experience"
-              id="partner_certification_menu"
-              action="partner_certification_view_action"/>
+    <menuitem
+            name="Certifications"
+            parent="menu_partner_experience"
+            id="partner_certification_menu"
+            action="partner_certification_view_action"
+        />
 
   </data>
 </openerp>

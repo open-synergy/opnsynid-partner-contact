@@ -2,7 +2,7 @@
 # Copyright 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api
+from openerp import api, fields, models
 
 
 class PartnerRiskLimitPolicy(models.Model):
@@ -13,7 +13,8 @@ class PartnerRiskLimitPolicy(models.Model):
 
     @api.multi
     @api.depends(
-        "group_ids", "group_ids.users",
+        "group_ids",
+        "group_ids.users",
     )
     def _compute_user(self):
         for policy in self:
@@ -26,13 +27,8 @@ class PartnerRiskLimitPolicy(models.Model):
         string="Policy",
         required=True,
     )
-    notes = fields.Text(
-        string="Notes"
-    )
-    active = fields.Boolean(
-        string="Active",
-        default=True
-    )
+    notes = fields.Text(string="Notes")
+    active = fields.Boolean(string="Active", default=True)
     sequence = fields.Integer(
         string="Sequence",
         default=5,

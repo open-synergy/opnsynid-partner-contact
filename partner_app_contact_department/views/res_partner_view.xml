@@ -1,15 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <openerp>
     <data>
 
-        <menuitem 
+        <menuitem
             id="partner_app_contact_department_menu"
             name="Departments"
             parent="partner_app.res_partner_address_book_menu"
             action="partner_contact_department.res_partner_department_action"
-            sequence="100"/>
+            sequence="100"
+        />
 
-        <record id="partner_contact_department.menu_res_partner_department" model="ir.ui.menu">
+        <record
+            id="partner_contact_department.menu_res_partner_department"
+            model="ir.ui.menu"
+        >
             <field
                 name="groups_id"
                 eval="[(6, 0, [ref('partner_app.group_hide_partner_menu')])]"

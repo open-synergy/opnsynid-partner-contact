@@ -2,7 +2,7 @@
 # Copyright 2016 OpenSynergy Indonesia
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, SUPERUSER_ID
+from openerp import SUPERUSER_ID, api, fields, models
 from openerp.exceptions import Warning as UserError
 from openerp.tools.translate import _
 
@@ -23,18 +23,15 @@ class PartnerRiskAdjustment(models.Model):
     )
     def _compute_policy(self):
         for adj in self:
-            adj.confirm_ok = adj.done_ok = adj.cancel_ok = \
-                adj.restart_ok = False
+            adj.confirm_ok = adj.done_ok = adj.cancel_ok = adj.restart_ok = False
 
             if self.env.user.id == SUPERUSER_ID:
-                adj.confirm_ok = adj.done_ok = adj.cancel_ok = \
-                    adj.restart_ok = True
+                adj.confirm_ok = adj.done_ok = adj.cancel_ok = adj.restart_ok = True
                 continue
 
             if adj.company_id:
                 company = adj.company_id
-                for policy in company.\
-                        _get_partner_risk_adj_button_policy_map():
+                for policy in company._get_partner_risk_adj_button_policy_map():
                     setattr(
                         adj,
                         policy[0],
@@ -292,8 +289,7 @@ class PartnerRiskAdjustment(models.Model):
     @api.model
     def _create_sequence(self, company_id):
         sequence_id = self._get_sequence(company_id)
-        sequence = self.env["ir.sequence"].\
-            next_by_id(sequence_id)
+        sequence = self.env["ir.sequence"].next_by_id(sequence_id)
         return sequence
 
     @api.model
@@ -302,7 +298,8 @@ class PartnerRiskAdjustment(models.Model):
         result = company.partner_risk_adjustment_sequence_id
         if not result:
             result = self.env.ref(
-                "partner_financial_risk_adjustment.sequence_risk_adjustment")
+                "partner_financial_risk_adjustment.sequence_risk_adjustment"
+            )
         return result.id
 
     @api.model
