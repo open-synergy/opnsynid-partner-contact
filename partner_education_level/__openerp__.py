@@ -3,7 +3,7 @@
 # pylint: disable=locally-disabled, manifest-required-author
 {
     "name": "Partner Education Level",
-    "version": "8.0.1.4.0",
+    "version": "8.0.1.5.0",
     "category": "Partner",
     "website": "https://simetri-sinergi.id",
     "author": "OpenSynergy Indonesia, PT. Simetri Sinergi Indonesia",
