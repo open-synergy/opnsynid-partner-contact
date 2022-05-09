@@ -6,7 +6,7 @@
 
 # opnsynid-partner-contact
 
-None
+opnsynid-partner-contact
 
 <!-- /!\ do not modify below this line -->
 
