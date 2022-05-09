@@ -7,7 +7,7 @@ include_aeroo_report: false
 include_wkhtmltopdf: false
 odoo_version: 8.0
 rebel_module_groups: []
-repo_description: null
+repo_description: opnsynid-partner-contact
 repo_name: opnsynid-partner-contact
 repo_slug: opnsynid-partner-contact
 travis_apt_packages: []
